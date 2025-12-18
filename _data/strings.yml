@@ -51,7 +51,7 @@ cookies_banner:
 not_found:
   title:               '404: Page Not Found'
   message:             |
-    Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
+    Sorry, I've misplaced that URL. My bad! 
     <!--home_link--> to try finding it again.
   home_link:           Head back home
 
@@ -93,61 +93,3 @@ date_formats:
   project:             '%Y'
   projects_group_by:   '%Y'
   resume:              '%b %Y'
-
-
-# PRO Version
-# ---------------------------------------------------------------------------------------
-# If you don't own the PRO version of Hydejack, modifying these will have no effect.
-
-welcome:
-  more_projects:       See <!--projects_title--> for more
-  more_posts:          See <!--posts_title--> for more
-
-resume:
-  location:            Location
-  location_separator:  ', '
-  email:               Email
-  phone:               Phone
-  website:             Website
-  work:                Experience
-  work_title:          <!--position--> at <!--company-->
-  highlights:          Highlights
-  volunteer:           Volunteer
-  volunteer_title:     <!--position--> at <!--organization-->
-  education:           Education
-  education_title:     <!--study_type--> in <!--area--> from <!--institution--> with GPA of <!--gpa-->
-  courses:             Courses
-  awards:              Awards
-  awards_title:        <!--title--> from <!--awarder-->
-  publications:        Publications
-  publications_title:  <!--name--> by <!--publisher-->
-  references:          References
-  languages:           Languages
-  fluency:             Fluency
-  skills:              Skills
-  level:               Level
-  interests:           Interests
-  summary:             Summary
-  keywords:            Keywords
-  print:               Print
-  download_pdf:        PDF
-  download_vcf:        vCard
-  download_json:       JSON
-  icons:
-    fallback:          icon-link
-    location:          icon-location
-    born:              icon-quill
-    citizenship:       icon-flag
-    maritalStatus:     icon-man-woman
-    email:             icon-envelop
-    phone:             icon-phone
-    website:           icon-home3
-    work:              icon-briefcase
-    volunteer:         icon-earth
-    education:         icon-library
-    awards:            icon-trophy
-    publications:      icon-book
-    references:        icon-quotes-right
-    languages:         icon-bubbles
-    skills:            icon-wrench
-    interests:         icon-heart

@@ -6,13 +6,9 @@ email:
 amazon:
   name: Amazon
   icon: icon-amazon
-google:
+google:x
   name: Google
   icon: icon-google
-google-plus:
-  name: Google+
-  icon: icon-google-plus
-  prepend: 'https://plus.google.com/'
 google-drive:
   name: Google Drive
   icon: icon-google-drive
@@ -31,9 +27,6 @@ spotify:
   name: Spotify
   icon: icon-spotify
   prepend: "https://play.spotify.com/"
-telegram:
-  name: Telegram
-  icon: icon-telegram
 twitter:
   name: X / Twitter
   icon: icon-twitter
@@ -50,19 +43,6 @@ vine:
   name: Vine
   icon: icon-vine
   prepend: 'https://vine.com/'
-vk:
-  name: VK
-  icon: icon-vk
-  prepend: "https://vk.com/"
-renren:
-  name: 人人网
-  icon: icon-renren
-sina-weibo:
-  name: Sina Weibo
-  icon: icon-sina-weibo
-rss:
-  name: RSS
-  icon: icon-rss2
 youtube:
   name: YouTube
   icon: icon-youtube
@@ -75,30 +55,6 @@ vimeo:
   name: Vimeo
   icon: icon-vimeo
   prepend: "https://www.vimeo.com/"
-lanyrd:
-  name: Lanyrd
-  icon: icon-lanyrd
-flickr:
-  name: Flickr
-  icon: icon-flickr2
-  prepend: "https://flickr.com/people/"
-dribbble:
-  name: Dribbble
-  icon: icon-dribbble
-  prepend: "https://dribbble.com/"
-behance:
-  name: Behance
-  icon: icon-behance
-  prepend: "https://www.behance.net/"
-deviantart:
-  name: DeviantArt
-  icon: icon-deviantart
-  prepend: "https://"
-  append: ".deviantart.com"
-500px:
-  name: 500px
-  icon: icon-500px
-  prepend: "https://500px.com/"
 steam:
   name: Steam
   icon: icon-steam
@@ -113,54 +69,18 @@ github:
   name: GitHub
   icon: icon-github
   prepend: "https://github.com/"
-npm:
-  name: npm
-  icon: icon-npm
-  prepend: "https://npmjs.com/~"
-basecamp:
-  name: Basecamp
-  icon: icon-basecamp
-trello:
-  name: Trello
-  icon: icon-trello
-  prepend: "https://trello.com/"
 wordpress:
   name: WordPress
   icon: icon-wordpress
-joomla:
-  name: Joomla!
-  icon: icon-joomla
-ello:
-  name: Ello
-  icon: icon-ello
-  prepend: "https://ello.co/"
-blogger:
-  name: Blogger
-  icon: icon-blogger
-  prepend: "https://www.blogger.com/profile/"
 tumblr:
   name: Tumblr
   icon: icon-tumblr
   prepend: "https://"
   append: ".tumblr.com"
-yahoo:
-  name: Yahoo
-  icon: icon-yahoo
-soundcloud:
-  name: SoundCloud
-  icon: icon-soundcloud
-  prepend: "https://soundcloud.com/"
-skype:
-  name: Skype
-  icon: icon-skype
 reddit:
   name: reddit
   icon: icon-reddit
   prepend: "https://www.reddit.com/user/"
-hackernews:
-  name: Hacker News
-  icon: icon-hackernews
-  prepend: "https://news.ycombinator.com/user?id="
 wikipedia:
   name: Wikipedia
   icon: icon-wikipedia
@@ -172,14 +92,6 @@ lastfm:
   name: Last.fm
   icon: icon-lastfm
   prepend: "http://www.last.fm/user/"
-delicious:
-  name: Delicious
-  icon: icon-delicious
-  prepend: "http://del.icio.us/"
-stumbleupon:
-  name: StumbleUpon
-  icon: icon-stumbleupon
-  prepend: "http://www.stumbleupon.com/stumbler/"
 stackoverflow:
   name: Stack Overflow
   icon: icon-stackoverflow
@@ -188,17 +100,6 @@ pinterest:
   name: Pinterest
   icon: icon-pinterest2
   prepend: "https://www.pinterest.com/"
-xing:
-  name: XING
-  icon: icon-xing2
-  prepend: "https://www.xing.com/profile/"
-flattr:
-  name: Flattr
-  icon: icon-flattr
-foursquare:
-  name: Foursquare
-  icon: icon-foursquare
-  prepend: "https://foursquare.com/user/"
 yelp:
   name: Yelp
   icon: icon-yelp
@@ -229,9 +130,6 @@ messenger:
   name: Messenger
   icon: icon-messenger
   prepend: https://messenger.com/
-stripe:
-  name: Stripe
-  icon: icon-stripe
 slack:
   name: Slack
   icon: icon-slack
@@ -239,10 +137,6 @@ gitlab:
   name: GitLab
   icon: icon-gitlab
   prepend: "https://gitlab.com/"
-line:
-  name: Line
-  icon: icon-line
-  prepend: https://line.me/
 medium:
   name: Medium
   icon: icon-medium
@@ -251,13 +145,7 @@ xbox:
   name: Xbox
   icon: icon-xbox
   prepend: https://xbox.com/play/user/
-wechat:
-  name: WeChat
-  icon: icon-wechat
 discord:
   name: Discord
   icon: icon-discord
   prepend: https://discord.com/invite/
-mastodon:
-  name: Mastodon
-  icon: icon-mastodon

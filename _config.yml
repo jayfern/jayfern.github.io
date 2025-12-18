@@ -51,7 +51,7 @@ author:
 menu:
   - title:             About Me
     url:               /about/
-  - title:             Resumé
+  - title:             Resume
     url:               /resume/
   - title:             Technical Projects
     url:               /techprojects/
