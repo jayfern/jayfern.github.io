@@ -6,7 +6,7 @@ email:
 amazon:
   name: Amazon
   icon: icon-amazon
-google:x
+google:
   name: Google
   icon: icon-google
 google-drive:

@@ -8,11 +8,16 @@ author1:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Hello! I'm Jay, a fourth-year at the University of California, Berkeley. I'm studying Statistics 
+    and Political Economy, with a minor in Public Policy. My wheelhouse is defense and security policy, 
+    quantitative modeling, and international relations in the Indo-Pacific. 
+
+    In a more chill way, I'm big on experimental recipes, traveling to new places, and urban exploring (which 
+    is just my preferred way of talking about getting lost in a big city :). 
     
-    Open `_data/authors.yml` to edit this text.
+    I also spent most of my time at Cal as a writer, performer, producer, dramaturg, and one-time board member 
+    for BareStage Productions——Berkeley's oldest and largest student-run theatre company. You can check out 
+    what I've worked on in my artistic portfolio!
 
   # This photo will be used in the about section
   picture:
