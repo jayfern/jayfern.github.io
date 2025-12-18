@@ -1,6 +1,6 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
-# Change `author1` to your shortname.
+# Change `author1` to your shortname
 author1:
   name:              jayfern
   email:             blue.jayfernando@gmail.com
