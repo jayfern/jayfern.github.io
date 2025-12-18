@@ -2,7 +2,7 @@ name: Build and Deploy Jekyll (Hydejack)
 
 on:
   push:
-    branches: ["main"]   # or "master" if that's your default branch
+    branches: ["main"]
 
 jobs:
   build:
@@ -24,7 +24,7 @@ jobs:
         run: bundle exec jekyll build
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./_site
 
@@ -34,6 +34,8 @@ jobs:
     permissions:
       pages: write
       id-token: write
+    environment:
+      name: github-pages   
     steps:
       - name: Deploy to GitHub Pages
         uses: actions/deploy-pages@v4
