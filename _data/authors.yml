@@ -8,15 +8,7 @@ author:
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
-    Hello! I'm Jay, a fourth-year undergrad at UC Berkeley. I'm studying Statistics 
-    and Political Economy, with a minor in Public Policy. My wheelhouse is defense and security policy, 
-    quantitative modeling, and international relations in the Indo-Pacific. 
-
-    In my spare time, I like to experiment with recipes, travel to new places, and get really into urban exploring (which is basically just getting lost in normal civilization). 
-    
-    At Cal, I've a writer, performer, producer, dramaturg, and one-time board member 
-    for BareStage Productions——Berkeley's oldest and largest student-run theatre company. You can check out 
-    what I've worked on in my artistic portfolio!
+    Hello! I'm Jay, a fourth-year undergrad at UC Berkeley studying Statistics and Political Economy. Welcome to my page!
 
   # This photo will be used in the about section
   picture:
@@ -64,17 +56,4 @@ author:
     # discord:         <invite-code>
     # x:               <username>
 
-# Another author (optional)
-#author2:
-  #name:              <firtname> <lastname>
-  #email:             <mail@domain.tld>
-  #about:             |
-  #  Lorem ipsum dolor sit amet, consectetur adipiscing elit,
-  #  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  #  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-   # Open `_data/authors.yml` to edit this text.
-
-  #picture:           https://placehold.it/128x128
-  #twitter:           <username>
-  #github:            <username>
