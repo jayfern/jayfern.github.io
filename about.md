@@ -18,7 +18,7 @@ quantitative modeling, and international relations in the Indo-Pacific.</p>
 <p> But that doesn't really tell the whole story. My jack-of-all trades approach to life has 
   led me through some pretty cool adventures, and I'm excited to share those here! </p>
   
-<p> Let's see. Over the past few years, I trained as an Air Force ROTC cadet, interned at a national lab, and picked up a good 
+<p> Over the past few years, I trained as an Air Force ROTC cadet, interned at a national lab, and picked up a good 
     few flight hours along the way. I've also been writing, performing, producing and directing for the stage, 
     running exposé financial audits, and testing out experimental recipes on my (mostly willing) friends. </p>
 
