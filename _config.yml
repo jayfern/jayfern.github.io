@@ -11,8 +11,7 @@ title:                 Jay Fernando
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Jay Fernando is a Statistics and Political Economy grad from UC Berkeley. He is interested in defense and security policy, particularly 
-  in the intersection of political theory and quantitative modeling. 
+  Jay Fernando is a Statistics and Political Economy grad from UC Berkeley. He is interested in the intersection of political theory and quantitative modeling. 
 
 # A shorter description for the sidebar.
 tagline:               Statistics & Political Economy @ UC Berkeley. The whole world shimmers.
@@ -37,7 +36,7 @@ author:
 menu:
   - title:             About Me
     url:               /about/
-  - title:             Resumes
+  - title:             Resume
     url:               /resume/
   - title:             Technical Projects
     url:               /techprojects/
