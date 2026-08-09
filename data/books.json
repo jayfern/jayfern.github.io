@@ -1,0 +1,53 @@
+{
+  "current": {
+    "title": "The Great Leveler",
+    "author": "Walter Scheidel",
+    "color": "#1F3329",
+    "progress": 62,
+    "review": "Bleak but rigorous — the case that only catastrophe reliably flattens inequality. Good companion reading to the policy side of things right now."
+  },
+  "shelf": [
+    {
+      "title": "Sapiens",
+      "author": "Yuval Noah Harari",
+      "color": "#8C6F42",
+      "height": 210,
+      "review": "Big-picture and a little too tidy in places, but the shared-fictions framing is genuinely useful for thinking about institutions."
+    },
+    {
+      "title": "The Art of War",
+      "author": "Sun Tzu",
+      "color": "#A83232",
+      "height": 195,
+      "review": "Reread this for a strategy seminar — still holds up as a compact text on decision-making under uncertainty."
+    },
+    {
+      "title": "Antigone",
+      "author": "Sophocles",
+      "color": "#35594A",
+      "height": 220,
+      "review": "Working on a scene study from this — the law-vs-conscience tension never gets old to perform."
+    },
+    {
+      "title": "Poor Economics",
+      "author": "Banerjee & Duflo",
+      "color": "#B8935A",
+      "height": 235,
+      "review": "The RCT-driven approach to development econ. Dense, but worth it if you're into the labor research side of things."
+    },
+    {
+      "title": "The Emperor's New Mind",
+      "author": "Roger Penrose",
+      "color": "#4B5D53",
+      "height": 215,
+      "review": "Slow going outside my depth in places, but the argument about computation and consciousness stuck with me."
+    },
+    {
+      "title": "Six Characters in Search of an Author",
+      "author": "Luigi Pirandello",
+      "color": "#6C8378",
+      "height": 200,
+      "review": "A formal trick that actually earns its keep — useful to think about when writing anything metatheatrical."
+    }
+  ]
+}

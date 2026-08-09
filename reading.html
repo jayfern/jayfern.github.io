@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reading — Jay Fernando</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body class="page-reading">
+
+<nav class="program-nav" id="program-nav"></nav>
+
+<main>
+  <header class="page-header">
+    <span class="stamp page-header__eyebrow">INTERMISSION</span>
+    <h1>Reading</h1>
+    <p class="page-header__deck">What I'm reading right now, and what's already on the shelf. Hover a spine for the review — tap on mobile.</p>
+  </header>
+
+  <section class="section">
+    <div class="featured-book" id="featured-book">
+      <!-- populated by js/main.js from data/books.json -->
+    </div>
+
+    <div id="shelf-rows">
+      <!-- shelf rows populated by js/main.js -->
+    </div>
+  </section>
+
+  <div class="page-next">
+    <a class="page-next__link" href="resume.html">← Act I</a>
+    <a class="page-next__link" href="technical.html">Act II — Technical Work →</a>
+  </div>
+
+  <footer class="site-footer">
+    <p>© <span id="year"></span> Jay Fernando.</p>
+  </footer>
+</main>
+
+<script src="js/main.js"></script>
+</body>
+</html>
