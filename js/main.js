@@ -153,6 +153,60 @@ function buildBookSpine(book) {
 renderBookshelf();
 
 /* ============================================================
+   THEATRE PAGE — scenes grid + performing/producing/dramaturgy
+   credit galleries, all driven from data/theatre.json so adding
+   a new scene or credit is just adding a line to that file.
+   ============================================================ */
+async function renderTheatreContent() {
+  const sceneGrid = document.getElementById("scene-grid");
+  const performingGrid = document.getElementById("performing-grid");
+  const producingGrid = document.getElementById("producing-grid");
+  const dramaturgyGrid = document.getElementById("dramaturgy-grid");
+  if (!sceneGrid && !performingGrid && !producingGrid && !dramaturgyGrid) return;
+
+  try {
+    const res = await fetch("data/theatre.json");
+    if (!res.ok) throw new Error("theatre.json not found");
+    const data = await res.json();
+
+    if (sceneGrid && Array.isArray(data.scenes)) {
+      sceneGrid.innerHTML = data.scenes
+        .map(
+          (s, i) => `
+        <article class="scene-card">
+          <span class="scene-card__index">${String(i + 1).padStart(2, "0")}</span>
+          <h3>${s.title}</h3>
+          <p class="scene-card__blurb">${s.blurb || ""}</p>
+          <span class="playbill-entry__tag">${s.tag || "short scene"}</span>
+        </article>`
+        )
+        .join("");
+    }
+
+    const renderCredits = (mount, items) => {
+      if (!mount || !Array.isArray(items)) return;
+      mount.innerHTML = items
+        .map(
+          (c) => `
+        <article class="credit-card">
+          <div class="credit-card__photo"><span>PHOTO</span></div>
+          <h4 class="credit-card__role">${c.role}</h4>
+          <span class="credit-card__meta">${c.production}${c.meta ? " — " + c.meta : ""}</span>
+          ${c.desc ? `<p class="credit-card__desc">${c.desc}</p>` : ""}
+        </article>`
+        )
+        .join("");
+    };
+    renderCredits(performingGrid, data.performing);
+    renderCredits(producingGrid, data.producing);
+    renderCredits(dramaturgyGrid, data.dramaturgy);
+  } catch (err) {
+    console.error("Theatre content failed to load:", err);
+  }
+}
+renderTheatreContent();
+
+/* ============================================================
    CAROUSEL — vanilla, reusable. Pass a container with
    [data-carousel] and a data-slides attribute pointing at a
    <template> or just build slides server-side in HTML; here we
