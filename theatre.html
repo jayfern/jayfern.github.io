@@ -20,89 +20,98 @@
     <p class="page-header__deck">Scenes I've written, roles I've played, shows I've produced and dramaturged.</p>
   </header>
 
-  <section class="section">
-    <div class="playbill-grid">
-      <div>
-        <h3 class="playbill__heading">Writing</h3>
-        <article class="playbill-entry">
-          <h4>Scene Title <span class="playbill-entry__tag">short scene</span></h4>
-          <p>A line or two describing the scene — tone, premise, where it was read or produced, if anywhere.</p>
-        </article>
-        <article class="playbill-entry">
-          <h4>Scene Title Two <span class="playbill-entry__tag">short scene</span></h4>
-          <p>Same format — add as many entries as you need.</p>
-        </article>
-      </div>
+  <!-- ============ WRITING ============ -->
+  <section class="section" id="writing">
+    <div class="section__head">
+      <span class="stamp">WRITING</span>
+      <h2>Scenes</h2>
+      <p class="section__sub">16 short scenes — edit the list in data/theatre.json.</p>
+    </div>
+    <div class="scene-grid" id="scene-grid">
+      <!-- populated by js/main.js from data/theatre.json -->
+    </div>
+  </section>
 
-      <div>
-        <h3 class="playbill__heading">Performing</h3>
-        <article class="playbill-entry">
-          <h4>Role Name <span class="playbill-entry__tag">Production Name</span></h4>
-          <p>Venue or company, and year.</p>
-        </article>
-        <article class="playbill-entry">
-          <h4>Role Name <span class="playbill-entry__tag">Production Name</span></h4>
-          <p>Venue or company, and year.</p>
-        </article>
-      </div>
+  <!-- ============ PERFORMING ============ -->
+  <section class="section" id="performing">
+    <div class="section__head">
+      <span class="stamp">PERFORMING</span>
+      <h2>Roles</h2>
+    </div>
+    <div class="credit-grid" id="performing-grid">
+      <!-- populated by js/main.js -->
+    </div>
+  </section>
 
-      <div>
-        <h3 class="playbill__heading">Producing</h3>
-        <article class="playbill-entry">
-          <h4>Production Name <span class="playbill-entry__tag">producer</span></h4>
-          <p>What the role involved — budget, logistics, casting — and the venue and year.</p>
-        </article>
-      </div>
+  <!-- ============ PRODUCING ============ -->
+  <section class="section" id="producing">
+    <div class="section__head">
+      <span class="stamp">PRODUCING</span>
+      <h2>Productions</h2>
+    </div>
+    <div class="credit-grid" id="producing-grid">
+      <!-- populated by js/main.js -->
+    </div>
+  </section>
 
-      <div>
-        <h3 class="playbill__heading">Dramaturgy</h3>
-        <article class="playbill-entry">
-          <h4>Production Name <span class="playbill-entry__tag">dramaturg</span></h4>
-          <p>What the research or textual work focused on, and the venue and year.</p>
-        </article>
-      </div>
+  <!-- ============ DRAMATURGY ============ -->
+  <section class="section" id="dramaturgy">
+    <div class="section__head">
+      <span class="stamp">DRAMATURGY</span>
+      <h2>Research &amp; Text</h2>
+    </div>
+    <div class="credit-grid" id="dramaturgy-grid">
+      <!-- populated by js/main.js -->
+    </div>
+  </section>
+
+  <!-- ============ BAREPAGE ENSEMBLE ============ -->
+  <section class="section" id="barepage">
+    <div class="section__head">
+      <span class="ensemble__meta">Ensemble · 4 years</span>
+      <h2>BarePage</h2>
+      <p class="section__sub">
+        <!-- PLACEHOLDER — replace with the real story -->
+        A writing, directing, and acting ensemble I was part of for
+        four years — devising and staging original short work from
+        the ground up, on a bare stage, with whoever showed up to
+        build it.
+      </p>
     </div>
 
-    <!-- ============ BAREPAGE ENSEMBLE ============ -->
-    <div class="ensemble">
-      <div class="ensemble__head">
-        <span class="ensemble__meta">Ensemble · 4 years</span>
-        <h3>BarePage</h3>
-        <p>
-          <!-- PLACEHOLDER — replace with the real story -->
-          A writing, directing, and acting ensemble I was part of for
-          four years — devising and staging original short work from
-          the ground up, on a bare stage, with whoever showed up to
-          build it.
-        </p>
-      </div>
-
-      <div class="carousel" data-carousel>
-        <div class="carousel__viewport">
-          <div class="carousel__track">
-            <div class="carousel__slide">
-              <span class="ph">PHOTO 1</span>
-              <span class="carousel__caption">Caption — production name, year</span>
-            </div>
-            <div class="carousel__slide">
-              <span class="ph">PHOTO 2</span>
-              <span class="carousel__caption">Caption — production name, year</span>
-            </div>
-            <div class="carousel__slide">
-              <span class="ph">PHOTO 3</span>
-              <span class="carousel__caption">Caption — production name, year</span>
-            </div>
-            <div class="carousel__slide">
-              <span class="ph">PHOTO 4</span>
-              <span class="carousel__caption">Caption — production name, year</span>
-            </div>
+    <div class="carousel" data-carousel>
+      <div class="carousel__viewport">
+        <div class="carousel__track">
+          <div class="carousel__slide">
+            <span class="ph">PHOTO 1</span>
+            <span class="carousel__caption">Caption — production name, year</span>
+          </div>
+          <div class="carousel__slide">
+            <span class="ph">PHOTO 2</span>
+            <span class="carousel__caption">Caption — production name, year</span>
+          </div>
+          <div class="carousel__slide">
+            <span class="ph">PHOTO 3</span>
+            <span class="carousel__caption">Caption — production name, year</span>
+          </div>
+          <div class="carousel__slide">
+            <span class="ph">PHOTO 4</span>
+            <span class="carousel__caption">Caption — production name, year</span>
+          </div>
+          <div class="carousel__slide">
+            <span class="ph">PHOTO 5</span>
+            <span class="carousel__caption">Caption — production name, year</span>
+          </div>
+          <div class="carousel__slide">
+            <span class="ph">PHOTO 6</span>
+            <span class="carousel__caption">Caption — production name, year</span>
           </div>
         </div>
-        <div class="carousel__controls">
-          <button class="carousel__btn carousel__btn--prev" aria-label="Previous photo">‹</button>
-          <div class="carousel__dots"></div>
-          <button class="carousel__btn carousel__btn--next" aria-label="Next photo">›</button>
-        </div>
+      </div>
+      <div class="carousel__controls">
+        <button class="carousel__btn carousel__btn--prev" aria-label="Previous photo">‹</button>
+        <div class="carousel__dots"></div>
+        <button class="carousel__btn carousel__btn--next" aria-label="Next photo">›</button>
       </div>
     </div>
   </section>
