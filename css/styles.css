@@ -1,3 +1,6 @@
+/* ============================================================
+   TOKENS
+   ============================================================ */
 :root {
   /* dark ink — now used sparingly, as an accent, not the canvas */
   --ink:        #201C17;
@@ -73,7 +76,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
-a { color: inherit; text-decoration: underline; }
+a { color: inherit; text-decoration: none; }
 p { margin: 0 0 1em; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 img { max-width: 100%; display: block; }
@@ -444,7 +447,10 @@ main { margin-left: var(--nav-w); }
 .book:hover, .book.is-open {
   transform: rotate(-8deg) translateY(-14px);
   box-shadow: inset -6px 0 10px rgba(0,0,0,0.22), 6px 14px 20px rgba(42, 35, 24, 0.4);
-  z-index: 5;
+  /* must beat .program-nav's z-index (100) — a lower value here traps
+     the review popup underneath the nav even if the popup's own
+     z-index is higher, because .book creates its own stacking context */
+  z-index: 150;
 }
 
 .book__review {
@@ -608,6 +614,89 @@ main { margin-left: var(--nav-w); }
    FOOTER
    ============================================================ */
 .site-footer { padding: 2.5rem var(--gutter); font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); border-top: 1px solid var(--line); }
+
+/* ============================================================
+   PROSE LINKS
+   Any link inside a paragraph underlines automatically — the
+   global `a { text-decoration: none }` above is meant for nav
+   and button-style links, not links inside body copy.
+   ============================================================ */
+p a {
+  text-decoration: underline;
+  text-decoration-color: var(--line-strong);
+  text-underline-offset: 3px;
+  transition: color 0.15s ease, text-decoration-color 0.15s ease;
+}
+p a:hover { color: var(--accent); text-decoration-color: currentColor; }
+
+/* ============================================================
+   HERO SOCIAL ICONS
+   ============================================================ */
+.hero__social { display: flex; gap: 0.9rem; margin-top: 1.5rem; }
+.hero__social a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 38px; height: 38px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  color: var(--paper-text);
+  transition: border-color 0.15s ease, color 0.15s ease, transform 0.15s ease;
+}
+.hero__social a:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+.hero__social svg { width: 18px; height: 18px; }
+
+/* ============================================================
+   THEATRE — scene grid (Writing) + credit galleries
+   (Performing / Producing / Dramaturgy)
+   ============================================================ */
+.scene-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+.scene-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.4rem;
+}
+.scene-card__index { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); }
+.scene-card h3 { font-size: 1.05rem; margin: 0.4em 0 0.3em; }
+.scene-card__blurb { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.6em; }
+
+.credit-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.75rem;
+}
+.credit-card { }
+.credit-card__photo {
+  aspect-ratio: 4/3;
+  background: var(--panel);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 0.75rem;
+}
+.credit-card__photo span {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  color: var(--muted);
+  letter-spacing: 0.08em;
+}
+.credit-card__role { font-size: 1.02rem; margin: 0 0 0.15em; }
+.credit-card__meta {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent);
+  letter-spacing: 0.04em;
+  display: block;
+  margin-bottom: 0.4em;
+}
+.credit-card__desc { font-size: 0.86rem; color: var(--muted); margin: 0; }
 
 /* ============================================================
    RESPONSIVE NAV (mobile)
