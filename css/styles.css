@@ -1,6 +1,3 @@
-/* ============================================================
-   TOKENS
-   ============================================================ */
 :root {
   /* dark ink — now used sparingly, as an accent, not the canvas */
   --ink:        #201C17;
@@ -76,7 +73,7 @@ h1, h2, h3, h4 {
   letter-spacing: -0.01em;
 }
 
-a { color: inherit; text-decoration: none; }
+a { color: inherit; text-decoration: underline; }
 p { margin: 0 0 1em; }
 ul, ol { margin: 0; padding: 0; list-style: none; }
 img { max-width: 100%; display: block; }
