@@ -1,7 +1,7 @@
 /* ============================================================
    CONFIG
    ============================================================ */
-const WORDPRESS_SITE_URL = "https://yourblog.wordpress.com"; // no trailing slash
+const BLOG_SITE_URL = "https://jayfern.medium.com"; // 
 const BLOG_POST_COUNT = 3;
 
 /* ============================================================
@@ -269,12 +269,12 @@ async function renderBlogFeed() {
   const feed = document.getElementById("blog-feed");
   const visitLink = document.getElementById("blog-visit-link");
   if (!feed) return;
-  if (visitLink) visitLink.href = WORDPRESS_SITE_URL;
+  if (visitLink) visitLink.href = BLOG_SITE_URL;
 
-  const isDotComHosted = WORDPRESS_SITE_URL.includes("wordpress.com");
+  const isDotComHosted = BLOG_SITE_URL.includes("wordpress.com");
   const endpoint = isDotComHosted
-    ? `https://public-api.wordpress.com/rest/v1.1/sites/${WORDPRESS_SITE_URL.replace(/^https?:\/\//, "")}/posts/?number=${BLOG_POST_COUNT}`
-    : `${WORDPRESS_SITE_URL}/wp-json/wp/v2/posts?per_page=${BLOG_POST_COUNT}&_embed`;
+    ? `https://public-api.wordpress.com/rest/v1.1/sites/${BLOG_SITE_URL.replace(/^https?:\/\//, "")}/posts/?number=${BLOG_POST_COUNT}`
+    : `${BLOG_SITE_URL}/wp-json/wp/v2/posts?per_page=${BLOG_POST_COUNT}&_embed`;
 
   try {
     const res = await fetch(endpoint);
@@ -304,7 +304,7 @@ async function renderBlogFeed() {
       feed.appendChild(card);
     });
   } catch (err) {
-    feed.innerHTML = `<p class="blog-feed__status">Set WORDPRESS_SITE_URL in js/main.js to load recent posts here.</p>`;
+    feed.innerHTML = `<p class="blog-feed__status">Set BLOG_SITE_URL in js/main.js to load recent posts here.</p>`;
     console.warn("Blog feed not loaded:", err.message);
   }
 }
