@@ -1,53 +1,60 @@
 {
   "current": {
-    "title": "The Great Leveler",
-    "author": "Walter Scheidel",
+    "title": "Ulysses",
+    "author": "James Joyce",
     "color": "#1F3329",
     "progress": 62,
-    "review": "Bleak but rigorous — the case that only catastrophe reliably flattens inequality. Good companion reading to the policy side of things right now."
+    "review": "Started this ahead of a trip to Ireland. I've read the Odyssey and the Bible, speak a little French and Latin, and it still took me three tries to get through the first four chapters—-plus, I needed the Gilbert Schema and one of my friends to do it. This is literally my own personal Odyssey."
   },
   "shelf": [
     {
-      "title": "Sapiens",
-      "author": "Yuval Noah Harari",
+      "title": "Ted Lasso S1-4",
+      "author": "cr. Jason Sudeikis, Bill Lawrence, Brendan Hunt, and Joe Kelly",
       "color": "#8C6F42",
       "height": 210,
-      "review": "Big-picture and a little too tidy in places, but the shared-fictions framing is genuinely useful for thinking about institutions."
+      "review": "Comfort rewatch. This show got me through most of high school, and the belief that people can always work to be the best version of themselves still carries me through life."
     },
     {
-      "title": "The Art of War",
-      "author": "Sun Tzu",
+      "title": "Deli Boys",
+      "author": "cr. Abdullah Saeed",
       "color": "#A83232",
       "height": 195,
-      "review": "Reread this for a strategy seminar — still holds up as a compact text on decision-making under uncertainty."
+      "review": "Watching this with my little sister. We're big fans of the violence (and Poorna Jagannathan in anything)."
     },
-    {
-      "title": "Antigone",
-      "author": "Sophocles",
-      "color": "#35594A",
-      "height": 220,
-      "review": "Working on a scene study from this — the law-vs-conscience tension never gets old to perform."
-    },
-    {
-      "title": "Poor Economics",
-      "author": "Banerjee & Duflo",
-      "color": "#B8935A",
-      "height": 235,
-      "review": "The RCT-driven approach to development econ. Dense, but worth it if you're into the labor research side of things."
-    },
-    {
-      "title": "The Emperor's New Mind",
-      "author": "Roger Penrose",
-      "color": "#4B5D53",
-      "height": 215,
-      "review": "Slow going outside my depth in places, but the argument about computation and consciousness stuck with me."
-    },
-    {
-      "title": "Six Characters in Search of an Author",
-      "author": "Luigi Pirandello",
+     {
+      "title": "Banshees of Inisherin",
+      "author": "dir. Martin McDonagh",
       "color": "#6C8378",
       "height": 200,
-      "review": "A formal trick that actually earns its keep — useful to think about when writing anything metatheatrical."
+      "review": "Airplane movie heading into Dublin! The cinematography is so evocative, and the cliffs of Ireland are so beautiful. I think about Pádraig, Siobhan, and Colm often."
+    },
+    {
+      "title": "Katabasis",
+      "author": "R.F. Kuang",
+      "color": "#35594A",
+      "height": 220,
+      "review": "The antagonist and characters were kind of soapy and predictable, but what a fun read! I especially loved the paradox-based magic system. "
+    },
+    {
+      "title": "Butter",
+      "author": "Asako Yuzuki",
+      "color": "#B8935A",
+      "height": 235,
+      "review": "I really loved this one. Like the high-end butter and rice she describes, her prose excites the tongue, clings to the throat and warms the body. Yuzuki's food descriptions are so vivid, and all her characters have so much depth. This is actually what made me leave IQ84 alone."
+    },
+    {
+      "title": "GRE Premium Prep",
+      "author": "The Princeton Review",
+      "color": "#4B5D53",
+      "height": 215,
+      "review": "Self-explanatory. Good God."
+    },
+    {
+      "title": "IQ84",
+      "author": "Haruki Murakami",
+      "color": "#6C8378",
+      "height": 200,
+      "review": "I honestly couldn't finish this because of how glaring and distracting Murakami's misogyny is in any female character's description. Tough read."
     }
   ]
 }
