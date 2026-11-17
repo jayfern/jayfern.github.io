@@ -1,19 +1,19 @@
-/* ============================================================
-   TOKENS
-   ============================================================ */
 :root {
-  /* dark ink — now used sparingly, as an accent, not the canvas */
+  /* ============================================================
+   COLORS HOME 
+   ============================================================ */
+  /* text color */
   --ink:        #201C17;
   --ink-soft:   #2C2620;
 
-  /* paper — the site-wide surface */
+  /* background */
   --paper:      #F3ECDA;
   --panel:      #FFFCF4;
   --paper-text: #2A2318;
   --muted:      rgba(42, 35, 24, 0.62);
 
-  /* accents — deepened for legibility on light paper;
-     "-lt" variants are for the dark nav strip only */
+  /* accent colors;
+     "-lt" is for nav strip */
   --marquee:    #A6362B;
   --marquee-lt: #D97F6B;
   --brass:      #9C7A45;
@@ -32,9 +32,9 @@
   --accent-lt: var(--brass-lt);
 
   /* type */
-  --font-display: "Fraunces", Georgia, serif;
-  --font-body:    "IBM Plex Sans", -apple-system, sans-serif;
-  --font-mono:    "IBM Plex Mono", "Courier New", monospace;
+  --font-display: "Ramaraja", Georgia, serif;
+  --font-body:    "Rufina", Georgia, serif;
+  --font-mono:    "Rufina", Georgia, serif;
 
   /* layout */
   --nav-w: 240px;
@@ -142,7 +142,7 @@ button { font: inherit; }
 }
 
 /* ============================================================
-   PROGRAM NAV — the one place dark ink stays the surface
+   NAV STRIP 
    ============================================================ */
 .program-nav {
   position: fixed;
@@ -206,7 +206,7 @@ button { font: inherit; }
 .program-nav__toggle span { width: 20px; height: 2px; background: var(--paper); }
 
 /* ============================================================
-   MAIN / PAGE HEADER
+   ABOUT PAGE 
    ============================================================ */
 main { margin-left: var(--nav-w); }
 
@@ -241,7 +241,7 @@ main { margin-left: var(--nav-w); }
 }
 .hero__meta .divider { opacity: 0.4; margin: 0 0.5em; }
 
-/* the ticket stays dark ink — one deliberate dark accent against the light hero */
+/* SIDE TICKET */
 .hero__ticket { flex-shrink: 0; display: none; }
 .ticket {
   writing-mode: vertical-rl;
@@ -447,9 +447,6 @@ main { margin-left: var(--nav-w); }
 .book:hover, .book.is-open {
   transform: rotate(-8deg) translateY(-14px);
   box-shadow: inset -6px 0 10px rgba(0,0,0,0.22), 6px 14px 20px rgba(42, 35, 24, 0.4);
-  /* must beat .program-nav's z-index (100) — a lower value here traps
-     the review popup underneath the nav even if the popup's own
-     z-index is higher, because .book creates its own stacking context */
   z-index: 150;
 }
 
@@ -521,7 +518,7 @@ main { margin-left: var(--nav-w); }
 .project-card__links a:hover { color: var(--ink); }
 
 /* ============================================================
-   THEATRE
+   THEATRE PORTFOLIO
    ============================================================ */
 .page-theatre .page-header {
   background: linear-gradient(180deg, rgba(166, 54, 43, 0.10) 0%, transparent 100%);
@@ -598,7 +595,7 @@ main { margin-left: var(--nav-w); }
 .carousel__dot.is-active { background: var(--accent); }
 
 /* ============================================================
-   BLOG EMBED (Encore)
+   BLOG EMBED 
    ============================================================ */
 .page-blog .page-header {
   background: linear-gradient(180deg, rgba(156, 122, 69, 0.14) 0%, transparent 100%);
@@ -616,10 +613,7 @@ main { margin-left: var(--nav-w); }
 .site-footer { padding: 2.5rem var(--gutter); font-family: var(--font-mono); font-size: 0.72rem; color: var(--muted); border-top: 1px solid var(--line); }
 
 /* ============================================================
-   PROSE LINKS
-   Any link inside a paragraph underlines automatically — the
-   global `a { text-decoration: none }` above is meant for nav
-   and button-style links, not links inside body copy.
+   PROSE LINKS -for button links
    ============================================================ */
 p a {
   text-decoration: underline;
@@ -647,8 +641,7 @@ p a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .hero__social svg { width: 18px; height: 18px; }
 
 /* ============================================================
-   THEATRE — scene grid (Writing) + credit galleries
-   (Performing / Producing / Dramaturgy)
+   THEATRE
    ============================================================ */
 .scene-grid {
   display: grid;
@@ -699,7 +692,7 @@ p a:hover { color: var(--accent); text-decoration-color: currentColor; }
 .credit-card__desc { font-size: 0.86rem; color: var(--muted); margin: 0; }
 
 /* ============================================================
-   RESPONSIVE NAV (mobile)
+   MOBILE NAV
    ============================================================ */
 @media (max-width: 880px) {
   .program-nav {
