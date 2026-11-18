@@ -7,7 +7,7 @@
   --ink-soft:   #2C2620;
 
   /* background */
-  --paper:      #FFFDF0; /* ivory */
+  --paper:      #FFFEF9; /* porcelain :o */
   --panel:      #FFFCF4; /* white */
   --paper-text: #2A2318;
   --nav:        #283618;
@@ -23,6 +23,9 @@
   --sage-lt:    #6f8456;
   --forest:     #81a800;
   --forest-lt:  #a3c373;
+
+  --accent: var(--marquee); 
+  --accent-lt: var(--marquee-lt);
 
   --line:        rgba(42, 35, 24, 0.14);
   --line-strong: rgba(42, 35, 24, 0.28);
@@ -97,7 +100,7 @@ button { font: inherit; }
   cursor: pointer;
 }
 .btn--accent {
-  background: var(--accent);
+  background: var(--marquee);
   color: var(--paper);
 }
 .btn--accent:hover { transform: translateY(-2px); }
@@ -115,7 +118,8 @@ button { font: inherit; }
   font-size: 0.72rem;
   letter-spacing: 0.04em;
   padding: 0.3em 0.6em;
-  border: 1px solid var(--line-strong);
+  border: 1px solid var(--nav);
+  background-color: var(--forest-lt);
   border-radius: var(--radius);
 }
 
@@ -291,164 +295,154 @@ main { margin-left: var(--nav-w); }
 @media (max-width: 800px) { .dossier { grid-template-columns: 1fr; } }
 
 /* ============================================================
-   shelf
+   SHELF (reading.html, rendered by js/bookshelf.js)
    ============================================================ */
-.page-reading .page-header {
-  background: var(--paper);
+
+/* layout knobs. The script changes --top-space and --floor-h when ROOM_BACKGROUND is set. */
+:root {
+  --header-h: 0px;      /* desktop has no top bar; the mobile nav is handled below */
+  --top-space: 1.5rem;  /* wall above the bookcase */
+  --floor-h: 0px;       /* floor band under the bookcase */
+  --pad-b: max(var(--floor-h), 1.5rem);
 }
 
-.featured-book {
+/* the page: bookcase on the left, title + review on the right, fitted to one screen */
+.shelf-stage {
+  --wood: var(--brass);
+  --wood-lt: var(--brass-lt);
+  --back: #241608;
+  height: calc(100vh - var(--header-h));
+  padding: var(--top-space) 1.5rem var(--pad-b);
   display: grid;
-  grid-template-columns: 200px 1fr;
-  gap: 2.5rem;
-  align-items: center;
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-left: 4px solid var(--forest);
-  border-radius: var(--radius);
-  padding: 2rem;
+  grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
+  gap: 1.5rem;
+  align-items: end;
+  background: var(--room-bg, none) center bottom / cover no-repeat, var(--paper);
 }
-.featured-book__cover {
-  aspect-ratio: 2/3;
-  border-radius: 2px;
-  display: flex;
-  align-items: flex-end;
-  padding: 1rem;
-  box-shadow: 4px 8px 20px rgba(42, 35, 24, 0.22);
-}
-.featured-book__cover-title {
-  font-family: var(--font-display);
-  font-style: italic;
-  color: rgba(255,255,255,0.92);
-  font-size: 1.1rem;
-  line-height: 1.2;
-}
-.featured-book__eyebrow {
-  font-family: var(--font-mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.14em;
-  color: var(--forest);
-  text-transform: uppercase;
-  margin-bottom: 0.6em;
-  display: block;
-}
-.featured-book__author { color: var(--muted); font-family: var(--font-mono); font-size: 0.8rem; margin-bottom: 0.8em; }
-.featured-book__progress {
-  height: 6px;
-  background: var(--line-strong);
-  border-radius: 3px;
-  overflow: hidden;
-  margin: 1rem 0;
-  max-width: 260px;
-}
-.featured-book__progress-bar { height: 100%; background: var(--forest); }
-.featured-book__progress-label { font-family: var(--font-mono); font-size: 0.7rem; color: var(--muted); }
-@media (max-width: 640px) { .featured-book { grid-template-columns: 120px 1fr; padding: 1.25rem; gap: 1.5rem; } }
 
-.shelf-row { margin-top: 3rem; }
-.shelf-row__label {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--muted);
-  margin-bottom: 1rem;
+/* one stacked bookcase: shelf height = leftover screen height / number of rows (set by the script) */
+.bookcase {
+  --board: 8px;
+  --avail: calc(100vh - var(--header-h) - var(--top-space) - var(--pad-b) - 20px);
+  --row-h: calc((var(--avail) - var(--rows, 5) * var(--board)) / var(--rows, 5));
+  min-width: 0;
+  padding: 10px;
+  background: var(--wood);
+  border-radius: var(--radius) var(--radius) 0 0;
 }
+.shelf-row { position: relative; }
 .shelf {
+  height: var(--row-h);
   display: flex;
-  flex-wrap: wrap;
   align-items: flex-end;
-  gap: 0.6rem;
-  padding: 1.5rem 0.25rem 0;
-  overflow: visible;
+  gap: 2px;
+  padding: 0 8px;
+  background: var(--back);
+  overflow: hidden;
 }
-.shelf__board {
-  height: 14px;
-  background: linear-gradient(180deg, var(--brass) 0%, #7A5F35 100%);
-  border-radius: 0 0 4px 4px;
-  box-shadow: 0 6px 14px rgba(42, 35, 24, 0.25);
+.shelf__board { height: var(--board); background: var(--wood-lt); }
+.shelf-row__label {
+  position: absolute; top: 3px; left: 10px; z-index: 1; margin: 0;
+  font: italic 10px/1 var(--font-body); color: var(--brass-lt); pointer-events: none;
 }
 
+/* spines. Static: nothing moves on hover. */
 .book {
   position: relative;
-  flex-shrink: 0;
-  width: 44px;
-  border-radius: 2px 5px 5px 2px;
-  cursor: pointer;
-  transform-origin: bottom left;
-  transition: transform 0.35s cubic-bezier(.2,.8,.2,1), box-shadow 0.35s ease;
-  box-shadow: inset -6px 0 10px rgba(0,0,0,0.22), 2px 4px 8px rgba(42, 35, 24, 0.35);
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  padding-top: 1rem;
-}
-.book span.book__title {
-  writing-mode: vertical-rl;
-  transform: rotate(180deg);
-  font-family: var(--font-mono);
-  font-size: 0.66rem;
-  color: rgba(255,255,255,0.88);
-  letter-spacing: 0.03em;
-  max-height: 85%;
+  flex: 0 0 auto;
+  width: var(--w, 20px);
+  height: calc(var(--row-h) * var(--hf, .8));
+  display: flex; align-items: center; justify-content: center;
   overflow: hidden;
-  white-space: nowrap;
+  background: var(--c, var(--sage-lt));
+  color: #fff;
+  border-radius: 1px 1px 0 0;
+  box-shadow: inset 2px 0 rgba(255,255,255,.18), inset -1px 0 rgba(0,0,0,.25);
+  cursor: pointer;
 }
-.book:hover, .book.is-open {
-  transform: rotate(-8deg) translateY(-14px);
-  box-shadow: inset -6px 0 10px rgba(0,0,0,0.22), 6px 14px 20px rgba(42, 35, 24, 0.4);
-  z-index: 150;
+.book__title {
+  writing-mode: vertical-rl;
+  max-height: 88%;
+  overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
+  font: 700 9px/1 var(--font-body);
 }
+.book:focus-visible { outline: 2px solid var(--paper); outline-offset: 1px; }
+.book.is-selected { outline: 2px solid var(--paper); outline-offset: -2px; filter: brightness(1.15); }
 
-.book__review {
-  position: absolute;
-  bottom: calc(100% + 14px);
-  left: 50%;
-  transform: translateX(-50%) translateY(6px);
-  width: 230px;
+/* CD jewel case: clear plastic edges, dark tray band at the top, shorter than the rest */
+.book--cd {
+  background: linear-gradient(90deg, rgba(255,255,255,.6) 0 2px, var(--c) 2px calc(100% - 2px), rgba(255,255,255,.45) calc(100% - 2px));
+  box-shadow: none;
+  border-radius: 0;
+}
+.book--cd .book__title { font-size: 8px; max-height: 80%; margin-top: 6px; }
+.book--cd::before { content: ""; position: absolute; top: 0; left: 2px; right: 2px; height: 6px; background: rgba(0,0,0,.4); }
+
+/* DVD cases: bands top and bottom. Movies get black bands, shows get white (box-set) bands. */
+.book--movie, .book--show { box-shadow: inset 1px 0 rgba(255,255,255,.25); border-radius: 1px; }
+.book--movie::before, .book--movie::after,
+.book--show::before, .book--show::after { content: ""; position: absolute; left: 0; right: 0; height: 11%; }
+.book--movie::before, .book--movie::after { background: #151515; }
+.book--show::before, .book--show::after { background: #ddd8ca; }
+.book--movie::before, .book--show::before { top: 0; }
+.book--movie::after, .book--show::after { bottom: 0; }
+.book--movie .book__title, .book--show .book__title { max-height: 70%; }
+
+/* right column: title, review, past years */
+.shelf-side {
+  align-self: end;
+  min-width: 0;
+  max-height: calc(100vh - var(--header-h) - var(--top-space) - var(--pad-b));
+  display: flex; flex-direction: column; gap: .9rem;
+}
+.shelf-title { flex: none; margin: 0; font-size: clamp(2rem, 3vw, 2.6rem); line-height: 1; color: var(--marquee); }
+
+.featured-book {
+  flex: 0 1 auto; min-height: 0; overflow: auto;
+  display: grid; grid-template-columns: 96px 1fr; gap: 1rem;
+  padding: 1.1rem 1.2rem;
   background: var(--panel);
-  color: var(--paper-text);
-  padding: 1rem 1.1rem;
-  border-radius: var(--radius);
-  font-size: 0.85rem;
-  line-height: 1.5;
-  box-shadow: 0 12px 28px rgba(42, 35, 24, 0.3);
   border: 1px solid var(--line);
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.2s ease, transform 0.2s ease;
-  z-index: 200;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(42, 35, 24, .12);
+  font-size: .95rem; line-height: 1.5;
 }
-.book__review::after {
-  content: "";
-  position: absolute;
-  top: 100%; left: 50%;
-  transform: translateX(-50%);
-  border: 7px solid transparent;
-  border-top-color: var(--panel);
+.featured-book__empty { grid-column: 1 / -1; margin: 0; color: var(--muted); }
+.featured-book__cover {
+  aspect-ratio: 2 / 3; display: flex; align-items: flex-end; padding: 6px;
+  border-radius: 2px; color: #fff; font: 700 .7rem/1.2 var(--font-body);
+  box-shadow: inset 3px 0 rgba(255,255,255,.18);
 }
-.book__review.flip-down {
-  bottom: auto;
-  top: calc(100% + 14px);
-  transform: translateX(-50%) translateY(-6px);
-}
-.book__review.flip-down::after {
-  top: auto; bottom: 100%;
-  border-top-color: transparent;
-  border-bottom-color: var(--panel);
-}
-.book:hover .book__review.flip-down,
-.book.is-open .book__review.flip-down { transform: translateX(-50%) translateY(0); }
+.featured-book h3 { margin: .1rem 0 0; font-size: 1.3rem; line-height: 1.15; }
+.featured-book p { margin: 0 0 .6em; }
+.featured-book__eyebrow { font-family: var(--font-mono); font-size: .8rem; font-style: italic; color: var(--brass); }
+.featured-book__author { color: var(--muted); }
+.featured-book__progress { height: 5px; margin-top: .5rem; background: var(--line); border-radius: 3px; overflow: hidden; }
+.featured-book__progress-bar { height: 100%; background: var(--forest); }
+.featured-book__progress-label { font-size: .75rem; color: var(--muted); }
 
-.book__review h5 { font-family: var(--font-display); font-style: italic; font-size: 0.95rem; margin: 0 0 0.3em; }
-.book__review .book__author { display: block; font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); margin-bottom: 0.5em; }
-.book:hover .book__review, .book.is-open .book__review { opacity: 1; transform: translateX(-50%) translateY(0); pointer-events: auto; }
+.past-years { flex: none; display: flex; flex-wrap: wrap; align-items: center; gap: .4rem; font-size: .85rem; color: var(--muted); }
+.past-years a {
+  padding: .1em .7em;
+  background: var(--panel);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  color: var(--paper-text);
+}
+.past-years a:hover { border-color: var(--brass); }
+
+/* phones: stack and let the page scroll (your mobile block already sets main's top padding for the nav) */
+@media (max-width: 880px) {
+  .shelf-stage { height: auto; grid-template-columns: minmax(0, 1fr); align-items: start; padding-inline: 1rem; }
+  .bookcase { --row-h: 110px; }
+  .shelf-side { order: -1; max-height: none; }
+}
 
 /* ============================================================
    TECHNICAL PROJECTS
    ============================================================ */
 .page-technical .page-header {
-  background: linear-gradient(180deg, rgba(67, 83, 71, 0.10) 0%, transparent 100%);
+  background: var(--paper);
 }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; }
 .project-card {
@@ -470,7 +464,7 @@ main { margin-left: var(--nav-w); }
    THEATRE PORTFOLIO
    ============================================================ */
 .page-theatre .page-header {
-  background: linear-gradient(180deg, rgba(166, 54, 43, 0.10) 0%, transparent 100%);
+  background: var(--paper);
 }
 .playbill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; }
 .playbill__heading {
@@ -547,7 +541,7 @@ main { margin-left: var(--nav-w); }
    BLOG EMBED 
    ============================================================ */
 .page-blog .page-header {
-  background: linear-gradient(180deg, rgba(156, 122, 69, 0.14) 0%, transparent 100%);
+  background: var(--paper);
 }
 .blog-feed { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
 .blog-feed__status { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }

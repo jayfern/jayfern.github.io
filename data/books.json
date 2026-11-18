@@ -54,7 +54,29 @@
       "author": "Haruki Murakami",
       "color": "#6C8378",
       "height": 200,
-      "review": "I honestly couldn't finish this because of how glaring and distracting Murakami's misogyny is in any female character's description. Tough read."
+      "review": "I honestly couldn't finish this because of how glaring Murakami's misogyny is in any female character's description. Tough read."
+    }
+  ],
+  "albums": [
+    { 
+      "title": "...", 
+      "artist": "...", 
+      "color": "#7a3e65", 
+      "review": "..." 
+      }
+    ],
+  "shows":  [
+    { "title": "...", 
+    "creator": "...", 
+    "color": "#2f5a4a", 
+    "review": "..." 
+    }
+  ],
+  "movies": [
+    { "title": "...", 
+    "director": "...", 
+    "color": "#344a7a", 
+    "review": "..." 
     }
   ]
 }

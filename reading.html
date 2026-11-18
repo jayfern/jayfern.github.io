@@ -6,7 +6,7 @@
 <title>media shelf</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Ramaraja&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/styles.css">
 </head>
 <body class="page-reading">
@@ -14,26 +14,22 @@
 <nav class="program-nav" id="program-nav"></nav>
 
 <main>
-  <header class="page-header">
-    <h1>shelf</h1>
-    <p class="page-header__deck">what i've been watching, reading, and listening to lately.</p>
-  </header>
+  <div class="shelf-stage">
+    <!-- js/bookshelf.js fills this with the stacked bookcase (books, albums, shows, movies) -->
+    <div id="shelf-rows" role="region" aria-label="Shelves"></div>
 
-  <section class="section">
-    <div class="featured-book" id="featured-book">
-      <!-- populated by js/main.js from data/books.json -->
+    <div class="shelf-side">
+      <h1 class="shelf-title">my shelf</h1>
+
+      <!-- js/bookshelf.js puts "currently reading", then the clicked item's review, here -->
+      <aside id="featured-book" class="featured-book" aria-live="polite">
+        <p class="featured-book__empty">Pick something off the shelves to read what I thought of it.</p>
+      </aside>
     </div>
-
-    <div id="shelf-rows">
-      <!-- shelf rows populated by js/main.js -->
-    </div>
-  </section>
-
-  <footer class="site-footer">
-    <p>© <span id="year"></span> jay fernando.</p>
-  </footer>
+  </div>
 </main>
 
 <script src="js/main.js"></script>
+<script src="js/bookshelf.js"></script>
 </body>
 </html>
