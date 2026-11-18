@@ -1,82 +1,106 @@
 {
-  "current": {
-    "title": "Ulysses",
-    "author": "James Joyce",
-    "color": "#1F3329",
-    "progress": 62,
-    "review": "Started this ahead of a trip to Ireland. I've read the Odyssey and the Bible, speak a little French and Latin, and it still took me three tries to get through the first four chapters—-plus, I needed the Gilbert Schema and one of my friends to do it. This is literally my own personal Odyssey."
-  },
   "shelf": [
     {
-      "title": "Ted Lasso S1-4",
-      "author": "cr. Jason Sudeikis, Bill Lawrence, Brendan Hunt, and Joe Kelly",
-      "color": "#8C6F42",
-      "height": 210,
-      "review": "Comfort rewatch. This show got me through most of high school, and the belief that people can always work to be the best version of themselves still carries me through life."
-    },
-    {
-      "title": "Deli Boys",
-      "author": "cr. Abdullah Saeed",
-      "color": "#A83232",
-      "height": 195,
-      "review": "Watching this with my little sister. We're big fans of the violence (and Poorna Jagannathan in anything)."
-    },
-     {
-      "title": "Banshees of Inisherin",
-      "author": "dir. Martin McDonagh",
-      "color": "#6C8378",
-      "height": 200,
-      "review": "Airplane movie heading into Dublin! The cinematography is so evocative, and the cliffs of Ireland are so beautiful. I think about Pádraig, Siobhan, and Colm often."
+      "title": "Ulysses",
+      "author": "James Joyce",
+      "current": true,
+      "review": "started this as light ireland pre-reading. famous last words. maybe the point is to make you feel like odysseus reading it. confused. lost. scared.\n it got cool after I pulled up the gilbert schema though."
     },
     {
       "title": "Katabasis",
       "author": "R.F. Kuang",
-      "color": "#35594A",
-      "height": 220,
-      "review": "The antagonist and characters were kind of soapy and predictable, but what a fun read! I especially loved the paradox-based magic system. "
+      "review": "my version of a colleen hoover book tbh. big fan of kuang's work on the poppy war, so this is a fun, light-hearted departure. ALSO I LOVED THE MAGIC SYSTEM. that's what math and verbal puzzles feel like to me..."
     },
     {
       "title": "Butter",
       "author": "Asako Yuzuki",
-      "color": "#B8935A",
-      "height": 235,
-      "review": "I really loved this one. Like the high-end butter and rice she describes, her prose excites the tongue, clings to the throat and warms the body. Yuzuki's food descriptions are so vivid, and all her characters have so much depth. This is actually what made me leave IQ84 alone."
+      "review": "this is brilliantly done, and the prose style matches the name: rich, comforting. it feels like it's going to stick to your ribs, you know? the food imagery is so vivid, and all her characters are so uniquely developed. yuzuki set the standard that made me drop 1Q84 lol."
     },
     {
-      "title": "GRE Premium Prep",
+      "title": "Princeton Review GRE Premium Prep 2024",
       "author": "The Princeton Review",
-      "color": "#4B5D53",
-      "height": 215,
-      "review": "Self-explanatory. Good God."
+      "review": "self-explanatory. torturous. good god. 168/162/4.5 if you're curious."
     },
     {
-      "title": "IQ84",
+      "title": "1Q84",
       "author": "Haruki Murakami",
-      "color": "#6C8378",
-      "height": 200,
-      "review": "I honestly couldn't finish this because of how glaring Murakami's misogyny is in any female character's description. Tough read."
+      "review": "why is he misogynist asf. dnf."
     }
   ],
   "albums": [
-    { 
-      "title": "...", 
-      "artist": "...", 
-      "color": "#7a3e65", 
-      "review": "..." 
-      }
-    ],
-  "shows":  [
-    { "title": "...", 
-    "creator": "...", 
-    "color": "#2f5a4a", 
-    "review": "..." 
+    {
+      "title": "Middle of Nowhere",
+      "artist": "Kacey Musgraves",
+      "review": "i've been singing Mexico Honey for months. no skip album. hell yeah."
+    },
+    {
+      "title": "Music, Fashion, Film",
+      "artist": "Charli XCX",
+      "review": "brilliant treatise on fame and ego while maintaining ultimate bop status. charli you have done it again."
+    },
+    {
+      "title": "Young Manhood and Other Donatable Organs",
+      "artist": "Zach Bryan",
+      "review": "his lyricism is always so poignant. unfortunately, he should fire his producers, because his voice is only clearly heard on collab tracks."
+    },
+    {
+      "title": "you seem pretty sad for a girl so in love",
+      "artist": "Olivia Rodrigo",
+      "review": "some big winners on this album, easily. this + daisy chain fields is going to win her the grammy."
+    },
+    {
+      "title": "The Life of a Showgirl: The Encore",
+      "artist": "Taylor Swift",
+      "review": "can i get a hear me out on this one. cleveland is slop but it's kind of sweet to have a girl who was raised on a christmas tree farm drop a christmas-style song about her new husband. and babylon is the first song she's released in years that meets taylor expectations. i have no defense for patient zero."
+    }
+  ],
+  "shows": [
+    {
+      "title": "Ted Lasso S1-4",
+      "creator": "Jason Sudeikis, Bill Lawrence, Brendan Hunt, and Joe Kelly",
+      "review": "comfort rewatch. no judgement please. i know i said i was into prestige tv. jay, did you mean ted lasso when you said prestige tv? NO. whatever. first 3 seasons remind you why you want to live. i wanted to like season 4 really badly, but it just kind of sucked. why is keeley pregnant."
+    },
+    {
+      "title": "Deli Boys",
+      "creator": "Abdullah Saeed",
+      "review": "watched this with my little sister. we're big fans of the violence (and poorna jagannathan)."
+    },
+    {
+      "title": "The Bear, S1-4",
+      "creator": "Christopher Storer",
+      "review": "the first two seasons are maybe some of the greatest TV i've ever seen in my life. the second two require a lot of prestige-TV-patience. syd and carmy had something crazy going on but you didn't hear that from me."
+    },
+    {
+      "title": "Severance, S1-2",
+      "creator": "Ben Stiller",
+      "review": "got the whole family bandwagoning on this one. will update when complete."
     }
   ],
   "movies": [
-    { "title": "...", 
-    "director": "...", 
-    "color": "#344a7a", 
-    "review": "..." 
+    {
+      "title": "Banshees of Inisherin",
+      "director": "Martin McDonagh",
+      "review": "airplane movie heading into dublin! the cinematography captures the landscape so perfectly."
+    },
+    {
+      "title": "Animals",
+      "director": "Ben Affleck",
+      "review": "funny as hell to drop this during the LA mayoral race. maybe the moral of the story is that we should give nithya raman a gun."
+    },
+    {
+      "title": "Jailer 2",
+      "director": "Nelson Dilipkumar",
+      "review": "hukum. bro that's literally superstar rajinikanth idk what you want me to say. well the movie was lowkey not good but that's not important. that's not what we're here for. my mom pulled out a murrukku bag halfway in. masala film to the max and the hrithik roshan cameo was everything to me."
+    },
+    {
+      "title": "You Can See Everything",
+      "director": "Nathan Fielder, Lance Oppenheim",
+      "review": "YOOOOOOOOOOOOOO. yeah it was okay. JOKE. brilliantly woven. getting a jump on watching next year's oscar nominees, i guess!"
+    },
+    {
+      "title": "Wildwood",
+      "director": "Travis Knight, LAIKA Studios",
+      "review": "the stop motion animation is stunning. more than worth it for that alone. and all the jokes are funny. the script is tight, but the screenplay as a whole pulls its punches whenever prue's parents show up. i don't know if the impacts of carnage are well handled, also. missed opportunity to say something meaningful about indigenous populations and limited its sense of place to a shot of portland's voodoo donuts."
     }
   ]
 }
