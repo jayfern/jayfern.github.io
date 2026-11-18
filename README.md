@@ -8,7 +8,7 @@
 | `reading.html` | media shelf.
 | `technical.html` | display for tech projects/dashboards.
 | `theatre.html` | theatre portfolio.
-| `blog.html` | blog.
+| `blog.html` | substack.
 
 edit sidebar using `partials/nav.html`, connects to (`js/main.js`),
 
@@ -17,17 +17,14 @@ edit sidebar using `partials/nav.html`, connects to (`js/main.js`),
 ```bash
 python3 -m http.server 8000
 ```
-Then open `http://localhost:8000`. A real server is required (not
-just double-clicking `index.html`) because the nav, bookshelf, and
-blog feed all load data via `fetch()`, which browsers block on
-`file://` URLs.
-
+then open `http://localhost:8000`.
 
 ## when adding stuff
 
 ***uploading photos***: drop files into `assets/images/` and swap the
-placeholder `div`s (`.portrait-frame`, `.carousel__slide`) for real
+placeholder `div`s (`.portrait-frame`, `.carousel__slide`) for 
 `<img>` tags:
+
 ```html
 <div class="carousel__slide">
   <img src="assets/images/barepage-1.jpg" alt="Description of the photo">
@@ -35,10 +32,7 @@ placeholder `div`s (`.portrait-frame`, `.carousel__slide`) for real
 </div>
 ```
 
-***reuploading resume*** — switch out `assets/resume.pdf`; 
-
-***quickblock resume*** — edit the `.record` blocks directly in
-`resume.html`.
+***reuploading resume*** — switch out whatever is in `assets/resume.pdf`; 
 
 ***media shelf*** — edit `data/books.json`. It has two parts:
 ```json
@@ -56,13 +50,11 @@ sets the spine color, `height` (px) varies spine height
 ***adding new technical projects*** — duplicate a `.project-card` block in
 `technical.html`.
 
-**Theatre entries** — duplicate `.playbill-entry` blocks under
-Writing / Performing / Producing / Dramaturgy in `theatre.html`.
+***adding theatre entries*** — duplicate `.playbill-entry` blocks in `theatre.html`.
 
-**BarePage carousel** — duplicate a `.carousel__slide` block inside
+***photo carousels*** — duplicate a `.carousel__slide` block inside
 `.carousel__track` in `theatre.html` for more photos. The carousel
 JS in `main.js` auto-detects however many slides exist — no other
 changes needed.
 
-***blog embed*** in `js/main.js`, set `WORDPRESS_SITE_URL` to
-WordPress site's URL. 
+***blog embed*** in `js/main.js`, set `SITE_URL` to your site's URL. 

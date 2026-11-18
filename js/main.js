@@ -1,7 +1,7 @@
 /* ============================================================
    CONFIG
    ============================================================ */
-const BLOG_SITE_URL = "https://jayfern.medium.com"; // 
+const BLOG_SITE_URL = "https://medium.com/@jayfern"; // 
 const BLOG_POST_COUNT = 3;
 
 /* ============================================================
@@ -47,10 +47,7 @@ async function loadNav() {
 loadNav();
 
 /* ============================================================
-   BOOKSHELF — featured "currently reading" book + shelves of
-   the rest, grouped into rows. Reviews pop up on hover/tap and
-   flip below the spine automatically if there isn't room above
-   (fixes the popup getting clipped near the top of the page).
+   BOOKSHELF
    ============================================================ */
 async function renderBookshelf() {
   const featuredMount = document.getElementById("featured-book");
@@ -153,9 +150,7 @@ function buildBookSpine(book) {
 renderBookshelf();
 
 /* ============================================================
-   THEATRE PAGE — scenes grid + performing/producing/dramaturgy
-   credit galleries, all driven from data/theatre.json so adding
-   a new scene or credit is just adding a line to that file.
+   THEATRE PAGE 
    ============================================================ */
 async function renderTheatreContent() {
   const sceneGrid = document.getElementById("scene-grid");
@@ -207,10 +202,7 @@ async function renderTheatreContent() {
 renderTheatreContent();
 
 /* ============================================================
-   CAROUSEL — vanilla, reusable. Pass a container with
-   [data-carousel] and a data-slides attribute pointing at a
-   <template> or just build slides server-side in HTML; here we
-   just wire up any .carousel already present in the markup.
+   CAROUSEL 
    ============================================================ */
 function initCarousels() {
   document.querySelectorAll("[data-carousel]").forEach((root) => {
@@ -271,7 +263,7 @@ async function renderBlogFeed() {
   if (!feed) return;
   if (visitLink) visitLink.href = BLOG_SITE_URL;
 
-  const isDotComHosted = BLOG_SITE_URL.includes("wordpress.com");
+  const isDotComHosted = BLOG_SITE_URL.includes(".com");
   const endpoint = isDotComHosted
     ? `https://public-api.wordpress.com/rest/v1.1/sites/${BLOG_SITE_URL.replace(/^https?:\/\//, "")}/posts/?number=${BLOG_POST_COUNT}`
     : `${BLOG_SITE_URL}/wp-json/wp/v2/posts?per_page=${BLOG_POST_COUNT}&_embed`;
@@ -304,7 +296,7 @@ async function renderBlogFeed() {
       feed.appendChild(card);
     });
   } catch (err) {
-    feed.innerHTML = `<p class="blog-feed__status">Set BLOG_SITE_URL in js/main.js to load recent posts here.</p>`;
+    feed.innerHTML = `<p class="blog-feed__status">Posts are loading.</p>`;
     console.warn("Blog feed not loaded:", err.message);
   }
 }
