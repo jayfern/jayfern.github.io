@@ -23,6 +23,7 @@
   --sage-lt:    #6f8456;
   --forest:     #81a800;
   --forest-lt:  #a3c373;
+  --pale-green: #EEF2E3; /* technical projects page background */
 
   --accent: var(--marquee); 
   --accent-lt: var(--marquee-lt);
@@ -183,12 +184,14 @@ button { font: inherit; }
 main { margin-left: var(--nav-w); }
 
 .page-header {
-  padding: 6rem var(--gutter) 3rem;
+  padding: 3rem var(--gutter) 1.5rem;
   border-bottom: 1px solid var(--line);
 }
-.page-header__eyebrow { margin-bottom: 1rem; }
-.page-header h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 0.3em; }
-.page-header__deck { font-size: 1.1rem; max-width: 60ch; color: var(--muted); }
+.page-header__eyebrow { margin-bottom: 0.5rem; }
+.page-header h1 { font-size: clamp(2.4rem, 5vw, 3.6rem); margin-bottom: 0.15em; line-height: 1.1; }
+/* first section right under a page header doesn't need the full 5rem on top */
+.page-header + .section { padding-top: 2.5rem; }
+.page-header__deck { font-size: 1.1rem; max-width: 60ch; color: var(--muted); margin-bottom: 0; }
 
 /* Home page hero */
 .hero {
@@ -232,8 +235,9 @@ main { margin-left: var(--nav-w); }
    ============================================================ */
 .section { padding: 5rem var(--gutter); }
 .section + .section { border-top: 1px solid var(--line); }
-.section__head { margin-bottom: .1rem; color: var(--marquee)}
-.section__head h2 { font-size: clamp(4rem, 4vw, 2.4rem); margin-top: 0.3em; }
+.section__head { margin-bottom: 1.25rem; color: var(--marquee)}
+.section__head h2 { font-size: clamp(4rem, 4vw, 2.4rem); line-height: 1.05; margin: 0.1em 0 0.2em; }
+.section__sub { margin-bottom: 0; }
 
 /* ============================================================
    ABOUT (index.html)
@@ -517,8 +521,9 @@ main { margin-left: var(--nav-w); }
 /* ============================================================
    TECHNICAL PROJECTS
    ============================================================ */
+body.page-technical,
 .page-technical .page-header {
-  background: var(--paper);
+  background: var(--pale-green);
 }
 .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; }
 .project-card {
@@ -537,13 +542,18 @@ main { margin-left: var(--nav-w); }
 .project-card__links a:hover { color: var(--ink); }
 
 /* ============================================================
-   THEATRE PORTFOLIO
+   THEATRE: production list on the left, selected photos on the right
    ============================================================ */
 .page-theatre .page-header {
   background: var(--paper);
 }
-.playbill-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 2.5rem; }
-.playbill__heading {
+.theatre {
+  display: grid;
+  grid-template-columns: minmax(0, 1.6fr) minmax(220px, 1fr);
+  gap: 3rem;
+  align-items: start;
+}
+.theatre__heading {
   font-family: var(--font-mono);
   font-size: 0.78rem;
   letter-spacing: 0.12em;
@@ -553,32 +563,70 @@ main { margin-left: var(--nav-w); }
   padding-bottom: 0.6em;
   margin-bottom: 1.3rem;
 }
-.playbill-entry { margin-bottom: 1.4rem; }
-.playbill-entry h4 { font-size: 1rem; display: flex; align-items: center; gap: 0.6em; flex-wrap: wrap; }
-.playbill-entry__tag {
-  font-family: var(--font-mono);
-  font-size: 0.6rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--sage);
-  border: 1px solid var(--line-strong);
-  padding: 0.2em 0.5em;
-  border-radius: var(--radius);
-}
-.playbill-entry p { font-size: 0.9rem; color: var(--muted); }
 
-.ensemble { margin-top: 4rem; padding-top: 3.5rem; border-top: 1px solid var(--line); }
-.ensemble__head { max-width: 62ch; margin-bottom: 2rem; }
-.ensemble__head h3 { font-size: 1.7rem; }
-.ensemble__meta {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  color: var(--accent);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  margin-bottom: 0.6em;
-  display: block;
+.production { padding: 0 0 1.4rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
+.production:last-child { border-bottom: 0; }
+.production__title { font-size: 1.4rem; line-height: 1.15; margin: 0 0 0.15em; color: var(--paper-text); }
+.production__meta { font-size: 0.82rem; color: var(--muted); margin: 0 0 0.35em; }
+.production__roles { font-weight: 700; color: var(--marquee); margin: 0 0 0.35em; }
+.production__note { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 0.5em; max-width: 60ch; }
+.production__links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.85rem; }
+.production__links a { color: var(--accent); border-bottom: 1px solid currentColor; }
+.production__links a:hover { color: var(--ink); }
+.production__links .is-pending { color: var(--muted); font-style: italic; }
+
+/* photo column stays in view while the list scrolls */
+.theatre__photos { position: sticky; top: 1.5rem; }
+.theatre-photo { margin: 0 0 1.25rem; }
+.theatre-photo img { width: 100%; border-radius: var(--radius); }
+.theatre-photo__ph {
+  aspect-ratio: 4 / 3;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--panel);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius);
+  font-size: 0.68rem; letter-spacing: 0.1em; color: var(--muted);
 }
+.theatre-photo figcaption { font-size: 0.78rem; color: var(--muted); margin-top: 0.4rem; }
+
+/* tab bar under the page header; one panel shows at a time */
+.tabs {
+  display: flex; flex-wrap: wrap; gap: 0.25rem 1.75rem;
+  padding: 0 var(--gutter);
+  border-bottom: 1px solid var(--line);
+}
+.tabs__tab {
+  appearance: none; background: none; border: 0; cursor: pointer;
+  padding: 0.9rem 0 0.7rem;
+  margin-bottom: -1px;               /* the active underline sits on the bar's border */
+  border-bottom: 2px solid transparent;
+  font: 1rem var(--font-body);
+  color: var(--muted);
+}
+.tabs__tab:hover { color: var(--paper-text); }
+.tabs__tab[aria-selected="true"] { color: var(--marquee); border-bottom-color: var(--marquee); }
+.tabs__tab:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.tab-panel { padding-top: 2.5rem; border-top: 0; }
+.tab-panel[hidden] { display: none; } /* panels are display:grid, which would override the hidden attribute */
+
+/* feature tabs (Rimalower Prize, BarePage) (Rimalower Prize, BarePage):
+   description on the left, photos on the right */
+.feature {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr);
+  gap: 3rem;
+  align-items: start;
+}
+.feature__eyebrow {
+  display: block;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--accent); margin-bottom: 0.4em;
+}
+.feature__title { font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.05; color: var(--marquee); margin: 0 0 0.4em; }
+.feature__text p { max-width: 60ch; color: var(--ink-soft); }
+.feature__photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+.feature__photos .theatre-photo { margin: 0; }
+.feature__photos .theatre-photo:first-child { grid-column: 1 / -1; } /* lead photo spans the row */
 
 .carousel { position: relative; max-width: 640px; }
 .carousel__viewport { overflow: hidden; border-radius: var(--radius); }
@@ -612,6 +660,19 @@ main { margin-left: var(--nav-w); }
 .carousel__dots { display: flex; gap: 0.5rem; }
 .carousel__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); border: 0; cursor: pointer; padding: 0; }
 .carousel__dot.is-active { background: var(--accent); }
+.carousel { max-width: none; }
+.carousel__slide { position: relative; overflow: hidden; }
+.carousel__slide img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+/* over a real photo, the caption sits on a dark strip along the bottom */
+.carousel__slide img ~ .carousel__caption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 0.5rem 1rem; background: rgba(32, 28, 23, .65); color: var(--paper);
+}
+
+@media (max-width: 880px) {
+  .theatre, .feature { grid-template-columns: 1fr; }
+  .theatre__photos { position: static; }
+}
 
 /* ============================================================
    BLOG EMBED 
@@ -658,57 +719,6 @@ p a:hover { color: var(--accent); text-decoration-color: currentColor; }
 }
 .hero__social a:hover { border-color: var(--marquee-lt); color: var(--marquee-lt); transform: translateY(-2px); }
 .hero__social svg { width: 18px; height: 18px; }
-
-/* ============================================================
-   THEATRE
-   ============================================================ */
-.scene-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 1.5rem;
-}
-.scene-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.4rem;
-}
-.scene-card__index { font-family: var(--font-mono); font-size: 0.7rem; color: var(--accent); }
-.scene-card h3 { font-size: 1.05rem; margin: 0.4em 0 0.3em; }
-.scene-card__blurb { font-size: 0.88rem; color: var(--muted); margin-bottom: 0.6em; }
-
-.credit-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 1.75rem;
-}
-.credit-card { }
-.credit-card__photo {
-  aspect-ratio: 4/3;
-  background: var(--panel);
-  border: 1px dashed var(--line-strong);
-  border-radius: var(--radius);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 0.75rem;
-}
-.credit-card__photo span {
-  font-family: var(--font-mono);
-  font-size: 0.65rem;
-  color: var(--muted);
-  letter-spacing: 0.08em;
-}
-.credit-card__role { font-size: 1.02rem; margin: 0 0 0.15em; }
-.credit-card__meta {
-  font-family: var(--font-mono);
-  font-size: 0.7rem;
-  color: var(--accent);
-  letter-spacing: 0.04em;
-  display: block;
-  margin-bottom: 0.4em;
-}
-.credit-card__desc { font-size: 0.86rem; color: var(--muted); margin: 0; }
 
 /* ============================================================
    MOBILE NAV

@@ -47,59 +47,100 @@ async function loadNav() {
 loadNav();
 
 /* ============================================================
-   THEATRE PAGE 
+   THEATRE PAGE
+   data/theatre.json:
+     "productions": [{ title, venue, year, roles: [...], note?, links?: [{ label, url }] }]
+       links are for the ones you wrote; a link with an empty url shows as "coming soon"
+     "photos": [{ src, caption }]  (src empty = placeholder box)
    ============================================================ */
-async function renderTheatreContent() {
-  const sceneGrid = document.getElementById("scene-grid");
-  const performingGrid = document.getElementById("performing-grid");
-  const producingGrid = document.getElementById("producing-grid");
-  const dramaturgyGrid = document.getElementById("dramaturgy-grid");
-  if (!sceneGrid && !performingGrid && !producingGrid && !dramaturgyGrid) return;
+async function renderTheatre() {
+  const list = document.getElementById("production-list");
+  const photos = document.getElementById("theatre-photos");
+  if (!list && !photos) return;
 
   try {
     const res = await fetch("data/theatre.json");
     if (!res.ok) throw new Error("theatre.json not found");
     const data = await res.json();
 
-    if (sceneGrid && Array.isArray(data.scenes)) {
-      sceneGrid.innerHTML = data.scenes
-        .map(
-          (s, i) => `
-        <article class="scene-card">
-          <span class="scene-card__index">${String(i + 1).padStart(2, "0")}</span>
-          <h3>${s.title}</h3>
-          <p class="scene-card__blurb">${s.blurb || ""}</p>
-          <span class="playbill-entry__tag">${s.tag || "short scene"}</span>
-        </article>`
-        )
-        .join("");
+    if (list && Array.isArray(data.productions)) {
+      list.innerHTML = data.productions.map((p) => {
+        const meta = [p.venue, p.year].filter(Boolean).join(" · ");
+        const links = Array.isArray(p.links) && p.links.length
+          ? `<ul class="production__links">${p.links.map((l) => l.url
+              ? `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a></li>`
+              : `<li class="is-pending">${l.label}: coming soon</li>`).join("")}</ul>`
+          : "";
+        return `
+          <article class="production">
+            <h3 class="production__title">${p.title}</h3>
+            ${meta ? `<p class="production__meta">${meta}</p>` : ""}
+            ${p.roles?.length ? `<p class="production__roles">${p.roles.join(" · ")}</p>` : ""}
+            ${p.note ? `<p class="production__note">${p.note}</p>` : ""}
+            ${links}
+          </article>`;
+      }).join("");
     }
 
-    const renderCredits = (mount, items) => {
-      if (!mount || !Array.isArray(items)) return;
-      mount.innerHTML = items
-        .map(
-          (c) => `
-        <article class="credit-card">
-          <div class="credit-card__photo"><span>PHOTO</span></div>
-          <h4 class="credit-card__role">${c.role}</h4>
-          <span class="credit-card__meta">${c.production}${c.meta ? " — " + c.meta : ""}</span>
-          ${c.desc ? `<p class="credit-card__desc">${c.desc}</p>` : ""}
-        </article>`
-        )
-        .join("");
-    };
-    renderCredits(performingGrid, data.performing);
-    renderCredits(producingGrid, data.producing);
-    renderCredits(dramaturgyGrid, data.dramaturgy);
+    if (photos && Array.isArray(data.photos)) {
+      photos.innerHTML = data.photos.map((ph) => `
+        <figure class="theatre-photo">
+          ${ph.src
+            ? `<img src="${ph.src}" alt="${ph.caption || ""}" loading="lazy">`
+            : `<div class="theatre-photo__ph">PHOTO</div>`}
+          ${ph.caption ? `<figcaption>${ph.caption}</figcaption>` : ""}
+        </figure>`).join("");
+    }
   } catch (err) {
     console.error("Theatre content failed to load:", err);
   }
 }
-renderTheatreContent();
+renderTheatre();
 
 /* ============================================================
-   CAROUSEL 
+   TABS (theatre page)
+   A [data-tabs] bar of role="tab" buttons; each button's aria-controls is the id of the
+   panel it shows ("panel-NAME"). The open tab goes in the URL as #NAME, so
+   theatre.html#barepage opens BarePage. (Panel ids differ from the #NAME on purpose:
+   if they matched, the browser would jump down to the panel on load.)
+   ============================================================ */
+function initTabs() {
+  document.querySelectorAll("[data-tabs]").forEach((bar) => {
+    const tabs = Array.from(bar.querySelectorAll('[role="tab"]'));
+    if (!tabs.length) return;
+    const panelOf = (tab) => document.getElementById(tab.getAttribute("aria-controls"));
+    const nameOf = (tab) => tab.getAttribute("aria-controls").replace(/^panel-/, "");
+
+    function open(tab, { focus = false, updateHash = true } = {}) {
+      tabs.forEach((t) => {
+        const on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        const panel = panelOf(t);
+        if (panel) panel.hidden = !on;
+      });
+      if (focus) tab.focus();
+      if (updateHash) history.replaceState(null, "", `#${nameOf(tab)}`);
+    }
+
+    tabs.forEach((tab, i) => {
+      tab.addEventListener("click", () => open(tab));
+      tab.addEventListener("keydown", (e) => {
+        const step = { ArrowRight: 1, ArrowLeft: -1 }[e.key];
+        if (step) open(tabs[(i + step + tabs.length) % tabs.length], { focus: true });
+        if (e.key === "Home") open(tabs[0], { focus: true });
+        if (e.key === "End") open(tabs[tabs.length - 1], { focus: true });
+      });
+    });
+
+    const fromHash = tabs.find((t) => `#${nameOf(t)}` === location.hash);
+    open(fromHash || tabs[0], { updateHash: false });
+  });
+}
+initTabs();
+
+/* ============================================================
+   CAROUSEL (BarePage photos on the theatre page)
    ============================================================ */
 function initCarousels() {
   document.querySelectorAll("[data-carousel]").forEach((root) => {

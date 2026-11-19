@@ -19,89 +19,107 @@
     <p class="page-header__deck">if you read my about, no, i wasn't joking about the theatre thing. lol.</p>
   </header>
 
-  <!-- ============ WRITING ============ -->
-  <section class="section" id="writing">
-    <div class="section__head">
-      <span class="stamp">WRITING</span>
-      <h2>Scenes</h2>
-      <p class="section__sub">16 short scenes — edit the list in data/theatre.json.</p>
+  <!-- tabs: each button's aria-controls names the <section> it shows (id "panel-NAME");
+       the open tab shows in the address as theatre.html#NAME. To add a tab, add a button here
+       and a <section class="section tab-panel" id="panel-NAME" role="tabpanel" hidden> below. -->
+  <div class="tabs" role="tablist" aria-label="Theatre" data-tabs>
+    <button class="tabs__tab" role="tab" id="tab-productions" aria-controls="panel-productions" aria-selected="true">productions</button>
+    <button class="tabs__tab" role="tab" id="tab-rimalower" aria-controls="panel-rimalower" aria-selected="false" tabindex="-1">the rimalower prize</button>
+    <button class="tabs__tab" role="tab" id="tab-barepage" aria-controls="panel-barepage" aria-selected="false" tabindex="-1">barepage</button>
+  </div>
+
+  <section class="section tab-panel theatre" id="panel-productions" role="tabpanel" aria-labelledby="tab-productions">
+    <!-- productions come from data/theatre.json ("productions"), rendered by js/main.js -->
+    <div class="theatre__list">
+      <h2 class="theatre__heading">productions</h2>
+      <div id="production-list"></div>
     </div>
-    <div class = scenes
+
+    <!-- photos come from data/theatre.json ("photos"); put the image files in assets/theatre/ -->
+    <aside class="theatre__photos" aria-label="Selected photos">
+      <h2 class="theatre__heading">selected photos</h2>
+      <div id="theatre-photos"></div>
+    </aside>
   </section>
 
-  <!-- ============ PERFORMING ============ -->
-  <section class="section" id="performing">
-    <div class="section__head">
-      <span class="stamp">PERFORMING</span>
-      <h2>Roles</h2>
+  <!-- ============ RIMALOWER PRIZE ============ -->
+  <section class="section tab-panel feature" id="panel-rimalower" role="tabpanel" aria-labelledby="tab-rimalower" hidden>
+    <div class="feature__text">
+      <span class="feature__eyebrow">award</span>
+      <h2 class="feature__title">The Rimalower Prize</h2>
+      <p>The Rimalower Prize, (named for Ben Rimalower, the founder of BareStage Productions), 
+        is an annual grant for student theatre productions that uniquely <b>uplift underrepresented 
+        voices in the performing arts</b>. It is designed for stories so <b>personal that they become universal.</b></p>
+        <p>
+         I created the Prize in 2025 after reading Madhuri Shekar's <i>A Nice Indian Boy</i> and 
+         Sanaz Toosi's <i>English</i>, because the Berkeley community deserves to have an home for 
+         art that truly represents us. After running a financial audit on BareStage Productions, 
+         I discovered systematic lack of support for productions with diverse themes (i.e., shows that center non-white 
+         or LGBTQ+ characters). The Prize aims to solve that, and has now grown to include more performers, 
+         artists, technicians, and administrators than I ever could have foreseen—not to mention the countless audience members that have been a part of this 
+         journey as well.            
+        </p>
+        <p>
+          JUMP, by Charly Evon Simpson, dir. Kalyan Piovesan Toussaint, was the inaugural awardee. 
+          It tells the story of a Black family navigating grief, and strangers finding unlikely connection.
+          I was proud to serve as its producer. Our intrepid cast and crew hurtled through 
+          every challenge a new production could throw at us, from securing rehearsal space, to aligning 
+          schedules with a wider company, and even to building a freestanding replica of 
+          the Golden Gate Bridge. Through JUMP, we fought to create the kind of community we 
+          had so hoped to find--and succeeded.
+        </p>
+        <p>
+         You can read more about the Prize on <a href = "barestageproductions.org/the-rimalower-prize"> the BareStage website</a>, or here,  
+         <a href = "https://docs.google.com/document/d/1Bpg4lH2HZkySjuWgh5peQl1C6_ieppo0cZgveFu0Jnk/edit?tab=t.0"
+          >in my original proposal.</a> 
+        </p>
     </div>
-    <div class="credit-grid" id="performing-grid">
-      <!-- populated by js/main.js -->
-    </div>
-  </section>
-
-  <!-- ============ PRODUCING ============ -->
-  <section class="section" id="producing">
-    <div class="section__head">
-      <span class="stamp">PRODUCING</span>
-      <h2>Productions</h2>
-    </div>
-    <div class="credit-grid" id="producing-grid">
-      <!-- populated by js/main.js -->
-    </div>
-  </section>
-
-  <!-- ============ DRAMATURGY ============ -->
-  <section class="section" id="dramaturgy">
-    <div class="section__head">
-      <span class="stamp">DRAMATURGY</span>
-      <h2>Research &amp; Text</h2>
-    </div>
-    <div class="credit-grid" id="dramaturgy-grid">
-      <!-- populated by js/main.js -->
+    <div class="feature__photos">
+      <figure class="theatre-photo">
+        <div class="theatre-photo__ph">PHOTO</div>
+        <figcaption>Caption</figcaption>
+      </figure>
+      <figure class="theatre-photo">
+        <div class="theatre-photo__ph">PHOTO</div>
+        <figcaption>Caption</figcaption>
+      </figure>
+      <figure class="theatre-photo">
+        <div class="theatre-photo__ph">PHOTO</div>
+        <figcaption>Caption</figcaption>
+      </figure>
     </div>
   </section>
 
   <!-- ============ BAREPAGE ENSEMBLE ============ -->
-  <section class="section" id="barepage">
-    <div class="section__head">
-      <span class="ensemble__meta">Ensemble · 4 years</span>
-      <h2>BarePage</h2>
-      <p class="section__sub">
-        <!-- PLACEHOLDER — replace with the real story -->
-        A writing, directing, and acting ensemble I was part of for
-        four years — devising and staging original short work from
-        the ground up, on a bare stage, with whoever showed up to
-        build it.
-      </p>
+  <section class="section tab-panel feature" id="panel-barepage" role="tabpanel" aria-labelledby="tab-barepage" hidden>
+    <div class="feature__text">
+      <span class="feature__eyebrow">ensemble · 4 years</span>
+      <h2 class="feature__title">BarePage</h2>
+      <!-- PLACEHOLDER: replace with the real story -->
+      <p>A writing, directing, and acting ensemble I was part of for four years, devising and
+        staging original short work from the ground up, on a bare stage, with whoever showed
+        up to build it.</p>
     </div>
-
+    <!-- carousel: swap each <span class="ph"> for <img src="assets/theatre/your-photo.jpg" alt="...">;
+         add or remove .carousel__slide blocks freely, the dots update themselves -->
     <div class="carousel" data-carousel>
       <div class="carousel__viewport">
         <div class="carousel__track">
           <div class="carousel__slide">
             <span class="ph">PHOTO 1</span>
-            <span class="carousel__caption">Caption — production name, year</span>
+            <span class="carousel__caption">Caption: production name, year</span>
           </div>
           <div class="carousel__slide">
             <span class="ph">PHOTO 2</span>
-            <span class="carousel__caption">Caption — production name, year</span>
+            <span class="carousel__caption">Caption: production name, year</span>
           </div>
           <div class="carousel__slide">
             <span class="ph">PHOTO 3</span>
-            <span class="carousel__caption">Caption — production name, year</span>
+            <span class="carousel__caption">Caption: production name, year</span>
           </div>
           <div class="carousel__slide">
             <span class="ph">PHOTO 4</span>
-            <span class="carousel__caption">Caption — production name, year</span>
-          </div>
-          <div class="carousel__slide">
-            <span class="ph">PHOTO 5</span>
-            <span class="carousel__caption">Caption — production name, year</span>
-          </div>
-          <div class="carousel__slide">
-            <span class="ph">PHOTO 6</span>
-            <span class="carousel__caption">Caption — production name, year</span>
+            <span class="carousel__caption">Caption: production name, year</span>
           </div>
         </div>
       </div>
@@ -113,13 +131,8 @@
     </div>
   </section>
 
-  <div class="page-next">
-    <a class="page-next__link" href="technical.html">← Act II</a>
-    <a class="page-next__link" href="blog.html">Encore — Field Notes →</a>
-  </div>
-
   <footer class="site-footer">
-    <p>© <span id="year"></span> Jay Fernando.</p>
+    <p>© <span id="year"></span> jay fernando.</p>
   </footer>
 </main>
 
