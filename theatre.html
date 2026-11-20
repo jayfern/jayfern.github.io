@@ -16,12 +16,9 @@
 <main>
   <header class="page-header">
     <h1>theatre</h1>
-    <p class="page-header__deck">if you read my about, no, i wasn't joking about the theatre thing. lol.</p>
+    <p class="page-header__deck">yes, i was serious about the theatre thing.</p>
   </header>
 
-  <!-- tabs: each button's aria-controls names the <section> it shows (id "panel-NAME");
-       the open tab shows in the address as theatre.html#NAME. To add a tab, add a button here
-       and a <section class="section tab-panel" id="panel-NAME" role="tabpanel" hidden> below. -->
   <div class="tabs" role="tablist" aria-label="Theatre" data-tabs>
     <button class="tabs__tab" role="tab" id="tab-productions" aria-controls="panel-productions" aria-selected="true">productions</button>
     <button class="tabs__tab" role="tab" id="tab-rimalower" aria-controls="panel-rimalower" aria-selected="false" tabindex="-1">the rimalower prize</button>
@@ -29,10 +26,28 @@
   </div>
 
   <section class="section tab-panel theatre" id="panel-productions" role="tabpanel" aria-labelledby="tab-productions">
-    <!-- productions come from data/theatre.json ("productions"), rendered by js/main.js -->
+
     <div class="theatre__list">
       <h2 class="theatre__heading">productions</h2>
-      <div id="production-list"></div>
+      <div class="theatre__group">
+        <h3>BareStage Productions</h3>
+
+        <div class="theatre__entry">
+          <strong class="theatre__show">BarePage: Fight Club (Spring 2026 Showcase)</strong>
+          <ul class="theatre__credits">
+            <li>wrote, directed: <a href="#">2HEAVY2PINK</a></li>
+            <li>acted: various</li>
+          </ul>
+        </div>
+
+        <div class="theatre__entry">
+          <strong class="theatre__show">JUMP</strong>
+          <ul class="theatre__credits">
+            <li>wrote, directed: <a href="#">2HEAVY2PINK</a></li>
+            <li>acted: various</li>
+          </ul>
+        </div>
+      </div>
     </div>
 
     <!-- photos come from data/theatre.json ("photos"); put the image files in assets/theatre/ -->
@@ -47,34 +62,52 @@
     <div class="feature__text">
       <span class="feature__eyebrow">award</span>
       <h2 class="feature__title">The Rimalower Prize</h2>
-      <p>The Rimalower Prize, (named for Ben Rimalower, the founder of BareStage Productions), 
-        is an annual grant for student theatre productions that uniquely <b>uplift underrepresented 
-        voices in the performing arts</b>. It is designed for stories so <b>personal that they become universal.</b></p>
+      <p>the rimalower prize, (named for ben rimalower, the founder of barestage productions), 
+        is an annual grant for uc berkeley student theatre productions that uniquely <b>uplift underrepresented 
+        voices in the performing arts</b>. it is designed for stories so <b>personal that they become universal.</b>
+      </p>
+      <p>
+         i created the prize in 2025 after reading madhuri shekar's <i>A Nice Indian Boy</i> and 
+         sanaz toosi's <i>English</i>, because the berkeley community deserves to have an home for 
+         art that truly represents us. after running a financial audit on barestage productions, 
+         i discovered systematic lack of support for productions with diverse themes (i.e., shows that center non-white 
+         or lgbtq+ characters). the rimalower prize aims to fill that gap.
+      </p>
+      <p>
+         this project has  now grown to include more performers, 
+         artists, technicians, and administrators than i ever could have 
+         foreseen—not to mention the countless audience members that have been a part of this 
+         journey as well.
+      </p> 
+      <p>
+          JUMP, by charly evon simpson, dir. kalyan piovesan toussaint, was the inaugural awardee. 
+          it tells the story of a Black family navigating grief, and strangers finding unlikely connection.
+          i was proud to serve as its producer.
+      </p>           
         <p>
-         I created the Prize in 2025 after reading Madhuri Shekar's <i>A Nice Indian Boy</i> and 
-         Sanaz Toosi's <i>English</i>, because the Berkeley community deserves to have an home for 
-         art that truly represents us. After running a financial audit on BareStage Productions, 
-         I discovered systematic lack of support for productions with diverse themes (i.e., shows that center non-white 
-         or LGBTQ+ characters). The Prize aims to solve that, and has now grown to include more performers, 
-         artists, technicians, and administrators than I ever could have foreseen—not to mention the countless audience members that have been a part of this 
-         journey as well.            
-        </p>
-        <p>
-          JUMP, by Charly Evon Simpson, dir. Kalyan Piovesan Toussaint, was the inaugural awardee. 
-          It tells the story of a Black family navigating grief, and strangers finding unlikely connection.
-          I was proud to serve as its producer. Our intrepid cast and crew hurtled through 
+          our intrepid cast and crew hurtled through 
           every challenge a new production could throw at us, from securing rehearsal space, to aligning 
           schedules with a wider company, and even to building a freestanding replica of 
-          the Golden Gate Bridge. Through JUMP, we fought to create the kind of community we 
-          had so hoped to find--and succeeded.
+          the golden gate bridge. 
+        </p>  
+        <p>
+          through JUMP, we fought to create the kind of community we had so hoped to find--and succeeded.
         </p>
         <p>
-         You can read more about the Prize on <a href = "barestageproductions.org/the-rimalower-prize"> the BareStage website</a>, or here,  
-         <a href = "https://docs.google.com/document/d/1Bpg4lH2HZkySjuWgh5peQl1C6_ieppo0cZgveFu0Jnk/edit?tab=t.0"
+         you can read more about the prize on <a href = "barestageproductions.org/the-rimalower-prize"> the barestage website</a>, or here,  
+         <a href = "https://docs.google.com/document/d/1bpg4lh2hzkysjuwgh5peql1c6_ieppo0czgvefu0jnk/edit?tab=t.0"
           >in my original proposal.</a> 
         </p>
     </div>
     <div class="feature__photos">
+      <figure class="theatre-photo">
+        <div class="theatre-photo__ph">PHOTO</div>
+        <figcaption>Caption</figcaption>
+      </figure>
+      <figure class="theatre-photo">
+        <div class="theatre-photo__ph">PHOTO</div>
+        <figcaption>Caption</figcaption>
+      </figure>
       <figure class="theatre-photo">
         <div class="theatre-photo__ph">PHOTO</div>
         <figcaption>Caption</figcaption>
@@ -95,10 +128,13 @@
     <div class="feature__text">
       <span class="feature__eyebrow">ensemble · 4 years</span>
       <h2 class="feature__title">BarePage</h2>
-      <!-- PLACEHOLDER: replace with the real story -->
-      <p>A writing, directing, and acting ensemble I was part of for four years, devising and
-        staging original short work from the ground up, on a bare stage, with whoever showed
-        up to build it.</p>
+      <p>barepage is an audition-only acting, writing, and directing ensemble. i was a member 
+        for all 8 semesters of my undergrad, so this group has almost been my second home. 
+        </p>
+        <p>
+          you can find the scenes i worked on in the productions tab. here are some photos 
+        through the years!      
+      </p>
     </div>
     <!-- carousel: swap each <span class="ph"> for <img src="assets/theatre/your-photo.jpg" alt="...">;
          add or remove .carousel__slide blocks freely, the dots update themselves -->

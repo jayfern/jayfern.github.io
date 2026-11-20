@@ -14,6 +14,7 @@ const SHELF_SECTIONS = [
 // The pick is based on the title, so each item keeps the same look on every visit.
 const SPINE_COLORS = ["#5e1e29", "#A05263", "#d28388", "#57604b", "#849f8e"];
 const BOOK_HEIGHTS = [0.64, 0.72, 0.8, 0.86]; // fraction of the shelf's height
+const BOOK_HEIGHT_MAX = 0.94; // only used when a long title needs it (see fitSpineTitles)
 
 const byline = (b) => b.author || b.artist || b.creator || b.director || "";
 const hash = (s) => [...String(s)].reduce((h, c) => (h * 31 + c.charCodeAt(0)) >>> 0, 7);
@@ -143,7 +144,11 @@ async function loadCover(mount, item, type) {
   img.alt = `Cover of ${item.title}`;
   img.className = "featured-book__cover-img";
   img.onload = () => {
-    if (mount.dataset.coverToken === token) box.classList.add("has-art"), box.appendChild(img);
+    if (mount.dataset.coverToken !== token) return;
+    // frame takes the cover's own shape, so nothing gets cropped off the sides
+    box.style.aspectRatio = `${img.naturalWidth} / ${img.naturalHeight}`;
+    box.classList.add("has-art");
+    box.appendChild(img);
   };
   img.src = url;
 }
@@ -223,6 +228,12 @@ async function renderBookshelf() {
       // one stacked bookcase: shelf height is worked out from the row count so nothing scrolls
       shelvesMount.classList.add("bookcase");
       shelvesMount.style.setProperty("--rows", totalRows || 1);
+      fitSpineTitles(shelvesMount);
+      let resizeTimer;
+      window.addEventListener("resize", () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => fitSpineTitles(shelvesMount), 150);
+      });
     }
   } catch (err) {
     if (shelvesMount) {
@@ -237,7 +248,21 @@ function spineSize(item, type) {
   // cases are all one height (shows and movies match); only books vary
   if (type === "show") return { w: 17, hf: 0.8 };
   if (type === "movie") return { w: 14, hf: 0.8 };
-  return { w: 18 + (h % 12), hf: BOOK_HEIGHTS[(h >> 3) % BOOK_HEIGHTS.length] };
+  return { w: 18 + (h % 12), hf: BOOK_HEIGHTS[(h >>> 3) % BOOK_HEIGHTS.length] };
+}
+
+// A book whose title doesn't fit its spine steps up through the taller height options
+// (ending at BOOK_HEIGHT_MAX) until it fits. Re-run on resize, since shelf height follows the window.
+function fitSpineTitles(root) {
+  const options = [...BOOK_HEIGHTS, BOOK_HEIGHT_MAX].sort((a, b) => a - b);
+  root.querySelectorAll(".book--book").forEach((spine) => {
+    const title = spine.querySelector(".book__title");
+    spine.style.setProperty("--hf", spine.dataset.hf); // start from its own height again
+    for (const hf of options) {
+      if (title.scrollHeight <= title.clientHeight + 1) break;
+      if (hf > Number(spine.style.getPropertyValue("--hf"))) spine.style.setProperty("--hf", hf);
+    }
+  });
 }
 
 // clicking or pressing Enter/Space on a shelf item shows it in the featured card
@@ -290,6 +315,7 @@ function buildSpine(item, type, onSelect) {
   spine.style.setProperty("--c", colorFor(item));
   spine.style.setProperty("--w", `${w}px`);
   spine.style.setProperty("--hf", hf);
+  spine.dataset.hf = hf; // its assigned height, before fitSpineTitles stretches it for a long title
   spine.innerHTML = `<span class="book__title">${item.title}</span>`;
   makeSelectable(spine, item, onSelect);
   return spine;

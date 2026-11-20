@@ -1,43 +1,4 @@
 {
-  "productions": [
-    {
-      "title": "Production Name",
-      "venue": "Theatre or company",
-      "year": "2025",
-      "roles": [
-        "playwright",
-        "director"
-      ],
-      "note": "optional: one line about the show.",
-      "links": [
-        {
-          "label": "read the script",
-          "url": ""
-        },
-        {
-          "label": "watch",
-          "url": ""
-        }
-      ]
-    },
-    {
-      "title": "Production Name",
-      "venue": "Theatre or company",
-      "year": "2024",
-      "roles": [
-        "Role Name (actor)"
-      ]
-    },
-    {
-      "title": "Production Name",
-      "venue": "Theatre or company",
-      "year": "2024",
-      "roles": [
-        "producer",
-        "dramaturg"
-      ]
-    }
-  ],
   "photos": [
     {
       "src": "",

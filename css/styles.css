@@ -542,7 +542,7 @@ body.page-technical,
 .project-card__links a:hover { color: var(--ink); }
 
 /* ============================================================
-   THEATRE: production list on the left, selected photos on the right
+   THEATRE: 
    ============================================================ */
 .page-theatre .page-header {
   background: var(--paper);
@@ -564,16 +564,17 @@ body.page-technical,
   margin-bottom: 1.3rem;
 }
 
-.production { padding: 0 0 1.4rem; margin-bottom: 1.4rem; border-bottom: 1px solid var(--line); }
-.production:last-child { border-bottom: 0; }
-.production__title { font-size: 1.4rem; line-height: 1.15; margin: 0 0 0.15em; color: var(--paper-text); }
-.production__meta { font-size: 0.82rem; color: var(--muted); margin: 0 0 0.35em; }
-.production__roles { font-weight: 700; color: var(--marquee); margin: 0 0 0.35em; }
-.production__note { font-size: 0.92rem; color: var(--ink-soft); margin: 0 0 0.5em; max-width: 60ch; }
-.production__links { display: flex; flex-wrap: wrap; gap: 0.4rem 1.2rem; font-size: 0.85rem; }
-.production__links a { color: var(--accent); border-bottom: 1px solid currentColor; }
-.production__links a:hover { color: var(--ink); }
-.production__links .is-pending { color: var(--muted); font-style: italic; }
+/* productions: group (company) > entry (show) > credits; every entry spaced the same */
+.theatre__group + .theatre__group { margin-top: 2.25rem; }
+.theatre__list h3 { font-size: 1.35rem; line-height: 1.15; margin: 0 0 0.4rem; color: var(--paper-text); }
+.theatre__entry { padding: 1rem 0; border-bottom: 1px solid var(--line); }
+.theatre__entry:last-child { border-bottom: 0; padding-bottom: 0; }
+.theatre__show { display: block; color: var(--marquee); line-height: 1.35; }
+.theatre__byline { display: block; font-size: 0.85rem; font-style: italic; color: var(--muted); margin-top: 0.15rem; }
+.theatre__credits { list-style: none; margin: 0.35rem 0 0; padding: 0 0 0 1.25rem; color: var(--muted); line-height: 1.55; }
+.theatre__list strong { color: var(--marquee); }
+.theatre__list a { color: var(--accent); border-bottom: 1px solid currentColor; }
+.theatre__list a:hover { color: var(--ink); }
 
 /* photo column stays in view while the list scrolls */
 .theatre__photos { position: sticky; top: 1.5rem; }

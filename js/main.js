@@ -48,39 +48,17 @@ loadNav();
 
 /* ============================================================
    THEATRE PAGE
-   data/theatre.json:
-     "productions": [{ title, venue, year, roles: [...], note?, links?: [{ label, url }] }]
-       links are for the ones you wrote; a link with an empty url shows as "coming soon"
+   The productions list is plain HTML in theatre.html. Photos come from data/theatre.json:
      "photos": [{ src, caption }]  (src empty = placeholder box)
    ============================================================ */
 async function renderTheatre() {
-  const list = document.getElementById("production-list");
   const photos = document.getElementById("theatre-photos");
-  if (!list && !photos) return;
+  if (!photos) return;
 
   try {
     const res = await fetch("data/theatre.json");
     if (!res.ok) throw new Error("theatre.json not found");
     const data = await res.json();
-
-    if (list && Array.isArray(data.productions)) {
-      list.innerHTML = data.productions.map((p) => {
-        const meta = [p.venue, p.year].filter(Boolean).join(" · ");
-        const links = Array.isArray(p.links) && p.links.length
-          ? `<ul class="production__links">${p.links.map((l) => l.url
-              ? `<li><a href="${l.url}" target="_blank" rel="noopener">${l.label} ↗</a></li>`
-              : `<li class="is-pending">${l.label}: coming soon</li>`).join("")}</ul>`
-          : "";
-        return `
-          <article class="production">
-            <h3 class="production__title">${p.title}</h3>
-            ${meta ? `<p class="production__meta">${meta}</p>` : ""}
-            ${p.roles?.length ? `<p class="production__roles">${p.roles.join(" · ")}</p>` : ""}
-            ${p.note ? `<p class="production__note">${p.note}</p>` : ""}
-            ${links}
-          </article>`;
-      }).join("");
-    }
 
     if (photos && Array.isArray(data.photos)) {
       photos.innerHTML = data.photos.map((ph) => `
