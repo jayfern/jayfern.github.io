@@ -1,10 +1,4 @@
 /* ============================================================
-   CONFIG
-   ============================================================ */
-const BLOG_SITE_URL = "https://medium.com/@jayfern"; // 
-const BLOG_POST_COUNT = 3;
-
-/* ============================================================
    NAV PARTIAL — loaded once per page, then marks the active link
    by comparing each link's href to the current file name
    ============================================================ */
@@ -79,7 +73,7 @@ renderTheatre();
    TABS (theatre page)
    A [data-tabs] bar of role="tab" buttons; each button's aria-controls is the id of the
    panel it shows ("panel-NAME"). The open tab goes in the URL as #NAME, so
-   theatre.html#barepage opens BarePage. (Panel ids differ from the #NAME on purpose:
+   theatre.html#performing opens the performing tab. (Panel ids differ from the #NAME on purpose:
    if they matched, the browser would jump down to the panel on load.)
    ============================================================ */
 function initTabs() {
@@ -113,6 +107,12 @@ function initTabs() {
 
     const fromHash = tabs.find((t) => `#${nameOf(t)}` === location.hash);
     open(fromHash || tabs[0], { updateHash: false });
+
+    // in-page links like <a href="#rimalower"> switch tabs too
+    window.addEventListener("hashchange", () => {
+      const target = tabs.find((t) => `#${nameOf(t)}` === location.hash);
+      if (target) open(target, { updateHash: false });
+    });
   });
 }
 initTabs();
@@ -170,53 +170,6 @@ function initCarousels() {
 }
 initCarousels();
 
-/* ============================================================
-   BLOG EMBED
-   ============================================================ */
-async function renderBlogFeed() {
-  const feed = document.getElementById("blog-feed");
-  const visitLink = document.getElementById("blog-visit-link");
-  if (!feed) return;
-  if (visitLink) visitLink.href = BLOG_SITE_URL;
-
-  const isDotComHosted = BLOG_SITE_URL.includes(".com");
-  const endpoint = isDotComHosted
-    ? `https://public-api.wordpress.com/rest/v1.1/sites/${BLOG_SITE_URL.replace(/^https?:\/\//, "")}/posts/?number=${BLOG_POST_COUNT}`
-    : `${BLOG_SITE_URL}/wp-json/wp/v2/posts?per_page=${BLOG_POST_COUNT}&_embed`;
-
-  try {
-    const res = await fetch(endpoint);
-    if (!res.ok) throw new Error("blog feed request failed");
-    const data = await res.json();
-    const posts = isDotComHosted ? data.posts : data;
-    if (!posts || !posts.length) throw new Error("no posts returned");
-
-    feed.innerHTML = "";
-    posts.forEach((post) => {
-      const title = isDotComHosted ? post.title : post.title.rendered;
-      const date = new Date(post.date);
-      const excerptRaw = isDotComHosted ? post.excerpt : post.excerpt.rendered;
-      const excerpt = excerptRaw.replace(/<[^>]+>/g, "").slice(0, 140).trim();
-      const url = isDotComHosted ? post.URL : post.link;
-
-      const card = document.createElement("a");
-      card.className = "blog-post";
-      card.href = url;
-      card.target = "_blank";
-      card.rel = "noopener";
-      card.innerHTML = `
-        <span class="blog-post__date">${date.toLocaleDateString("en-US", { month: "short", day: "numeric", year: "numeric" })}</span>
-        <h3>${title}</h3>
-        <p>${excerpt}${excerpt.length >= 140 ? "…" : ""}</p>
-      `;
-      feed.appendChild(card);
-    });
-  } catch (err) {
-    feed.innerHTML = `<p class="blog-feed__status">Posts are loading.</p>`;
-    console.warn("Blog feed not loaded:", err.message);
-  }
-}
-renderBlogFeed();
 
 /* ============================================================
    FOOTER YEAR

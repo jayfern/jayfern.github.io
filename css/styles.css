@@ -23,7 +23,9 @@
   --sage-lt:    #6f8456;
   --forest:     #81a800;
   --forest-lt:  #a3c373;
-  --pale-green: #EEF2E3; /* technical projects page background */
+  --pale-green:  #EEF2E3; /* technical projects background */
+  --pale-purple: #F7EEF1; /* theatre background */
+  --pale-pink:   #F8ECEE; /* shelf background */
 
   --accent: var(--marquee); 
   --accent-lt: var(--marquee-lt);
@@ -113,16 +115,9 @@ button { font: inherit; }
 }
 .btn--outline:hover { background: var(--ink); color: var(--paper); }
 
-.tag-list { display: flex; flex-wrap: wrap; gap: 0.5em; margin: 0.6em 0 1em; }
-.tag-list li, .tag-list span {
-  font-family: var(--font-mono);
-  font-size: 0.72rem;
-  letter-spacing: 0.04em;
-  padding: 0.3em 0.6em;
-  border: 1px solid var(--nav);
-  background-color: var(--forest-lt);
-  border-radius: var(--radius);
-}
+/* skill/tool lists read as plain text: R · Python · SQL */
+.tag-list { display: flex; flex-wrap: wrap; margin: 0.6em 0 1em; font-size: 0.9rem; color: var(--muted); }
+.tag-list li:not(:last-child)::after, .tag-list span:not(:last-child)::after { content: "·"; margin: 0 0.5em; } /* dot trails each item, so wrapped lines never start with one */
 
 /* ============================================================
    NAV STRIP 
@@ -281,13 +276,12 @@ main { margin-left: var(--nav-w); }
    ============================================================ */
 .dossier { display: grid; grid-template-columns: 1.4fr 1fr; gap: 3.5rem; }
 .dossier__heading {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  text-transform: lowercase;
   color: var(--accent);
   border-bottom: 1px solid var(--line);
-  padding-bottom: 0.6em;
+  padding-bottom: 0.25em;
   margin-bottom: 1.3rem;
 }
 .dossier__heading--spaced { margin-top: 2rem; }
@@ -310,6 +304,8 @@ main { margin-left: var(--nav-w); }
   --pad-b: max(var(--floor-h), 1.5rem);
 }
 
+body.page-reading { background: var(--pale-pink); }
+
 /* the page: bookcase on the left, title + review on the right, fitted to one screen */
 .shelf-stage {
   --wood: var(--brass);
@@ -321,7 +317,7 @@ main { margin-left: var(--nav-w); }
   grid-template-columns: minmax(0, 1.4fr) minmax(260px, 1fr);
   gap: 1.5rem;
   align-items: end;
-  background: var(--room-bg, none) center bottom / cover no-repeat, var(--paper);
+  background: var(--room-bg, none) center bottom / cover no-repeat, var(--pale-pink);
 }
 
 /* one stacked bookcase: shelf height = leftover screen height / number of rows (set by the script) */
@@ -518,6 +514,8 @@ main { margin-left: var(--nav-w); }
   .shelf-side { order: -1; max-height: none; }
 }
 
+.dossier .tag-list { color: var(--paper-text); } /* software skills + languages in full-strength text, not grey */
+
 /* ============================================================
    TECHNICAL PROJECTS
    ============================================================ */
@@ -525,27 +523,23 @@ body.page-technical,
 .page-technical .page-header {
   background: var(--pale-green);
 }
-.project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1.75rem; }
-.project-card {
-  background: var(--panel);
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  padding: 1.75rem;
-  transition: transform 0.2s ease, border-color 0.2s ease;
-}
-.project-card:hover { transform: translateY(-4px); border-color: var(--accent); }
-.project-card h3 { font-size: 1.2rem; margin-top: 0.5em; }
-.project-card__desc { font-size: 0.92rem; color: var(--muted); }
-.tag-list--inline li, .tag-list--inline span { border-color: var(--line-strong); }
-.project-card__links { display: flex; gap: 1rem; margin-top: 0.5rem; }
-.project-card__links a { font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+/* projects as a plain list: one column, no boxes, space between entries */
+.project-grid { display: flex; flex-direction: column; gap: 2.25rem; max-width: 68ch; }
+.project-card h3 { font-size: 1.3rem; margin: 0 0 0.3em; }
+.project-card__desc { color: var(--ink-soft); margin-bottom: 0.4em; }
+.project-card .tag-list { margin: 0; }
+.project-card > :not(h3) { padding-left: 1.5rem; } /* everything under the title sits indented */
+.project-card__links { margin-top: 0.2rem; }
+.project-card__links a { font-size: 0.85rem; font-style: italic; color: var(--accent); }
 .project-card__links a:hover { color: var(--ink); }
+
 
 /* ============================================================
    THEATRE: 
    ============================================================ */
+body.page-theatre,
 .page-theatre .page-header {
-  background: var(--paper);
+  background: var(--pale-purple);
 }
 .theatre {
   display: grid;
@@ -554,13 +548,12 @@ body.page-technical,
   align-items: start;
 }
 .theatre__heading {
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
+  font-family: var(--font-display);
+  font-size: 1.35rem;
+  text-transform: lowercase;
   color: var(--accent);
   border-bottom: 1px solid var(--line);
-  padding-bottom: 0.6em;
+  padding-bottom: 0.25em;
   margin-bottom: 1.3rem;
 }
 
@@ -575,6 +568,25 @@ body.page-technical,
 .theatre__list strong { color: var(--marquee); }
 .theatre__list a { color: var(--accent); border-bottom: 1px solid currentColor; }
 .theatre__list a:hover { color: var(--ink); }
+.theatre__heading--spaced { margin-top: 2.75rem; }
+
+/* writing tab: one plain line per piece, no dividers */
+.works { list-style: none; margin: 0; padding: 0; }
+.works li {
+  display: grid; grid-template-columns: minmax(0, 1fr) auto;
+  column-gap: 1.5rem; align-items: baseline; padding: 0.35rem 0;
+}
+.works__title { grid-column: 1; justify-self: start; } /* underline only as wide as the title */
+.works__sub { grid-column: 1; grid-row: 2; font-size: 0.75rem; font-style: italic; color: var(--muted); line-height: 1.3; }
+.works__meta { grid-column: 2; grid-row: 1; text-align: right; }
+@media (max-width: 560px) {
+  .works li { grid-template-columns: 1fr; }
+  .works__meta { grid-column: 1; grid-row: auto; text-align: left; }
+}
+.works__title { color: var(--paper-text); }
+a.works__title { border-bottom: 1px solid currentColor; color: var(--paper-text); }
+a.works__title:hover { color: var(--accent); }
+.works__meta { font-size: 0.8rem; color: var(--muted); }
 
 /* photo column stays in view while the list scrolls */
 .theatre__photos { position: sticky; top: 1.5rem; }
@@ -610,7 +622,7 @@ body.page-technical,
 .tab-panel { padding-top: 2.5rem; border-top: 0; }
 .tab-panel[hidden] { display: none; } /* panels are display:grid, which would override the hidden attribute */
 
-/* feature tabs (Rimalower Prize, BarePage) (Rimalower Prize, BarePage):
+/* feature rows (Rimalower Prize tab, and each role on the performing tab):
    description on the left, photos on the right */
 .feature {
   display: grid;
@@ -620,14 +632,25 @@ body.page-technical,
 }
 .feature__eyebrow {
   display: block;
-  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
-  color: var(--accent); margin-bottom: 0.4em;
+  font-size: 0.85rem; font-style: italic;
+  color: var(--muted); margin-bottom: 0.3em;
 }
 .feature__title { font-size: clamp(2rem, 3.5vw, 2.8rem); line-height: 1.05; color: var(--marquee); margin: 0 0 0.4em; }
 .feature__text p { max-width: 60ch; color: var(--ink-soft); }
 .feature__photos { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
 .feature__photos .theatre-photo { margin: 0; }
 .feature__photos .theatre-photo:first-child { grid-column: 1 / -1; } /* lead photo spans the row */
+.feature__show { font-size: 1.15rem; margin: 0 0 0.2em; color: var(--paper-text); }
+.feature__byline { font-size: 0.85rem; font-style: italic; color: var(--muted); }
+.feature__text .feature__byline { color: var(--muted); }
+
+/* performing tab: Cyrano and Hamlet side by side, BarePage below */
+.performing__leads { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3rem; }
+.role__text { margin-bottom: 1.25rem; }
+.role__text p { margin: 0 0 0.2em; }
+.role .feature__title { font-size: 1.35rem; font-weight: 400; line-height: 1.25; color: var(--paper-text); margin: 0 0 0.15em; }
+.role .feature__show { font-size: 1rem; color: var(--marquee); }
+.performing__leads + .feature { margin-top: 4rem; padding-top: 3.5rem; border-top: 1px solid var(--line); }
 
 .carousel { position: relative; max-width: 640px; }
 .carousel__viewport { overflow: hidden; border-radius: var(--radius); }
@@ -645,21 +668,34 @@ body.page-technical,
 }
 .carousel__slide span.ph { font-family: var(--font-mono); font-size: 0.68rem; color: var(--muted); letter-spacing: 0.1em; }
 .carousel__caption { font-family: var(--font-mono); font-size: 0.75rem; color: var(--muted); text-align: center; padding: 0 1rem; }
-.carousel__controls { display: flex; align-items: center; justify-content: space-between; margin-top: 1rem; }
-.carousel__btn {
-  background: var(--panel);
-  border: 1px solid var(--line-strong);
-  color: var(--paper-text);
-  width: 40px; height: 40px;
-  border-radius: 50%;
-  cursor: pointer;
-  font-size: 1.1rem;
-  display: flex; align-items: center; justify-content: center;
-  transition: border-color 0.15s ease, transform 0.15s ease;
+.carousel { padding-bottom: 1.75rem; } /* room for the dots */
+.carousel__controls {
+  position: absolute; top: 0; left: 0; right: 0;
+  aspect-ratio: 4 / 3;               /* same box as the slide, so arrows sit at its sides */
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 0.5rem;
+  pointer-events: none;              /* clicks and swipes fall through to the photo */
 }
-.carousel__btn:hover { border-color: var(--accent); transform: scale(1.05); }
-.carousel__dots { display: flex; gap: 0.5rem; }
-.carousel__dot { width: 8px; height: 8px; border-radius: 50%; background: var(--line-strong); border: 0; cursor: pointer; padding: 0; }
+.carousel__btn {
+  pointer-events: auto;
+  background: none; border: 0; padding: 0;
+  width: 2rem; height: 3rem;
+  color: var(--paper-text);
+  font-size: 1.6rem; line-height: 1;
+  cursor: pointer;
+  opacity: 0.45;
+  transition: opacity 0.15s ease;
+  display: flex; align-items: center; justify-content: center;
+}
+.carousel:hover .carousel__btn { opacity: 0.8; }
+.carousel__btn:hover, .carousel__btn:focus-visible { opacity: 1; }
+.carousel:has(img) .carousel__btn { color: var(--paper); text-shadow: 0 1px 3px rgba(0,0,0,.5); }
+.carousel__dots {
+  position: absolute; left: 0; right: 0; top: calc(100% + 0.75rem); /* just below the photo */
+  display: flex; justify-content: center; gap: 0.45rem;
+  pointer-events: auto;
+}
+.carousel__dot { width: 6px; height: 6px; border-radius: 50%; background: var(--line-strong); border: 0; cursor: pointer; padding: 0; }
 .carousel__dot.is-active { background: var(--accent); }
 .carousel { max-width: none; }
 .carousel__slide { position: relative; overflow: hidden; }
@@ -671,22 +707,17 @@ body.page-technical,
 }
 
 @media (max-width: 880px) {
-  .theatre, .feature { grid-template-columns: 1fr; }
+  .theatre, .feature, .performing__leads { grid-template-columns: minmax(0, 1fr); } /* minmax(0,…) stops the carousels from pushing past the screen */
   .theatre__photos { position: static; }
 }
 
 /* ============================================================
-   BLOG EMBED 
+   SUBSTACK 
    ============================================================ */
+body.page-blog,
 .page-blog .page-header {
-  background: var(--paper);
+  background: var(--pale-green);
 }
-.blog-feed { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.5rem; }
-.blog-feed__status { font-family: var(--font-mono); font-size: 0.85rem; color: var(--muted); }
-.blog-post { background: var(--panel); border: 1px solid var(--line); border-radius: var(--radius); padding: 1.25rem; }
-.blog-post__date { font-family: var(--font-mono); font-size: 0.68rem; color: var(--accent); letter-spacing: 0.06em; }
-.blog-post h3 { font-size: 1.05rem; margin: 0.4em 0 0.4em; }
-.blog-post p { font-size: 0.88rem; color: var(--muted); }
 
 /* ============================================================
    FOOTER

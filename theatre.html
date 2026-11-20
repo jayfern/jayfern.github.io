@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Theatre — Jay Fernando</title>
+<meta name="description" content="Jay Fernando's theatre work: original plays, performing, and the Rimalower Prize.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Ramaraja&family=Rufina:wght@400;700&display=swap" rel="stylesheet">
@@ -16,38 +17,101 @@
 <main>
   <header class="page-header">
     <h1>theatre</h1>
-    <p class="page-header__deck">yes, i was serious about the theatre thing.</p>
+    <p class="page-header__deck">yeah, i was serious about the theatre thing.</p>
   </header>
 
   <div class="tabs" role="tablist" aria-label="Theatre" data-tabs>
-    <button class="tabs__tab" role="tab" id="tab-productions" aria-controls="panel-productions" aria-selected="true">productions</button>
+    <button class="tabs__tab" role="tab" id="tab-writing" aria-controls="panel-writing" aria-selected="true">writing</button>
+    <button class="tabs__tab" role="tab" id="tab-performing" aria-controls="panel-performing" aria-selected="false" tabindex="-1">performing</button>
     <button class="tabs__tab" role="tab" id="tab-rimalower" aria-controls="panel-rimalower" aria-selected="false" tabindex="-1">the rimalower prize</button>
-    <button class="tabs__tab" role="tab" id="tab-barepage" aria-controls="panel-barepage" aria-selected="false" tabindex="-1">barepage</button>
   </div>
 
-  <section class="section tab-panel theatre" id="panel-productions" role="tabpanel" aria-labelledby="tab-productions">
+  <!-- ============ WRITING ============ -->
+  <section class="section tab-panel theatre" id="panel-writing" role="tabpanel" aria-labelledby="tab-writing">
 
     <div class="theatre__list">
-      <h2 class="theatre__heading">productions</h2>
-      <div class="theatre__group">
-        <h3>BareStage Productions</h3>
+      <h2 class="theatre__heading">plays</h2>
+      <!-- unstaged piece: leave out the works__sub line, e.g.
+        <li>
+          <a class="works__title" href="LINK">title</a>
+          <span class="works__meta">one-act · 2025</span>
+        </li>
+        (no link yet? use <span class="works__title">title</span> instead of the <a>) -->
+      <ul class="works">
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/18oHIS19MTGJNAYlqfU6svVq1lepA3EKp7Z5u1qDdWfg/edit?usp=sharing"
+          >2HEAVY2PINK</a>
+          <span class="works__sub">staged, directed</span>
+          <span class="works__meta">BarePage: Fight Club · spring 2026</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/1dz6H40I5fQx1Fji5Jscq79gQsWbAGM6PHeP81ddQnU8/edit?usp=sharing"
+          >new apartment</a>
+          <span class="works__sub">staged, directed</span>
+          <span class="works__meta">In Memoriam: Barepage · fall 2025</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/1TsTrUPDwByspL9_aZOPt58G7gfKkNu-Hf-gbLCiSQBo/edit?usp=sharing"
+          >what came spilling out that day</a>
+          <span class="works__sub">staged</span>
+          <span class="works__meta">In Memoriam: Barepage · fall 2025</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/1Rp8c9uYUtCGKHPHMIx6agl3hEZZrcyWGgxfrUlylRxQ/edit?usp=sharing"
+          >the harbor</a>
+          <span class="works__sub">staged, directed</span>
+          <span class="works__meta">BarePage: gone fishin' · spring 2025</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/15SB6MSReCY4JBzRlu1BTlZjfWhn9xNcuOpEm1fQu3rM/edit?usp=sharing"
+          >persona non grata</a>
+          <span class="works__sub">staged</span>
+          <span class="works__meta">BarePage: gone fishin' · spring 2025</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/1Ugn3rVo2PFhbKJMYkorNN6C9q_v1hAPwn7qGY563qmQ/edit?usp=sharing"
+          >homemade dynamite</a>
+          <span class="works__sub">staged, directed</span>
+          <span class="works__meta">It's BarePage, B**** · fall 2024</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/1VpYRwuPR_5BCyJnTKNKmQly3R8GiolFeozfzy4winQk/edit?usp=sharing"
+          >read-aloud</a>
+          <span class="works__sub">staged</span>
+          <span class="works__meta">BarePage: Divorce · spring 2024</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://drive.google.com/file/d/1eSHUMcDVmeggcpF4cx4jsZqUOUVS9seo/view?usp=sharing"
+          >machine</a>
+          <span class="works__sub">staged</span>
+          <span class="works__meta">No Dating in BarePage · fall 2023</span>
+        </li>
+        <li>
+          <a class="works__title" href="https://docs.google.com/document/d/1OBHbbSavZ4DO8pHroVpRwIp3aruIeyEORYz2pZ7axtY/edit?usp=sharing"
+          >act of contrition</a>
+          <span class="works__sub">staged, directed</span>
+          <span class="works__meta">BarePage: Darker than You'd Expect · fall 2022</span>
+        </li>
+      </ul>
 
-        <div class="theatre__entry">
-          <strong class="theatre__show">BarePage: Fight Club (Spring 2026 Showcase)</strong>
-          <ul class="theatre__credits">
-            <li>wrote, directed: <a href="#">2HEAVY2PINK</a></li>
-            <li>acted: various</li>
-          </ul>
-        </div>
-
-        <div class="theatre__entry">
-          <strong class="theatre__show">JUMP</strong>
-          <ul class="theatre__credits">
-            <li>wrote, directed: <a href="#">2HEAVY2PINK</a></li>
-            <li>acted: various</li>
-          </ul>
-        </div>
-      </div>
+      <h2 class="theatre__heading theatre__heading--spaced">other credits</h2>
+      <ul class="works">
+        <li>
+          <a class="works__title" href="#rimalower">JUMP</a>
+          <span class="works__sub">rimalower prize producer</span>
+          <span class="works__meta">by charly evon simpson, dir. kalyan piovesan toussaint · spring 2026</span>
+        </li>
+        <li>
+          <span class="works__title">House of Joy</span>
+          <span class="works__sub">dramaturg</span>
+          <span class="works__meta">by madhuri shekar, dir. riya borde · fall 2025</span>
+        </li>
+        <li>
+          <span class="works__title">financial director, barestage productions</span>
+          <span class="works__sub">executive board member</span>
+          <span class="works__meta">fall 2024 · spring 2025</span>
+        </li>
+      </ul>
     </div>
 
     <!-- photos come from data/theatre.json ("photos"); put the image files in assets/theatre/ -->
@@ -60,21 +124,27 @@
   <!-- ============ RIMALOWER PRIZE ============ -->
   <section class="section tab-panel feature" id="panel-rimalower" role="tabpanel" aria-labelledby="tab-rimalower" hidden>
     <div class="feature__text">
-      <span class="feature__eyebrow">award</span>
+      <span class="feature__eyebrow">fall 2025 – spring 2026</span>
       <h2 class="feature__title">The Rimalower Prize</h2>
-      <p>the rimalower prize, (named for ben rimalower, the founder of barestage productions), 
-        is an annual grant for uc berkeley student theatre productions that uniquely <b>uplift underrepresented 
-        voices in the performing arts</b>. it is designed for stories so <b>personal that they become universal.</b>
+      <p>the rimalower prize is an annual grant i created for uc berkeley 
+        student theatre productions that uniquely <b>uplift underrepresented 
+        voices in the performing arts</b>. it is named for ben rimalower and hosted 
+        through barestage productions. 
+        </p>
+        <p>its purpose is to tell stories 
+        so <b>personal that they become universal.</b>
       </p>
       <p>
-         i created the prize in 2025 after reading madhuri shekar's <i>A Nice Indian Boy</i> and 
-         sanaz toosi's <i>English</i>, because the berkeley community deserves to have an home for 
-         art that truly represents us. after running a financial audit on barestage productions, 
-         i discovered systematic lack of support for productions with diverse themes (i.e., shows that center non-white 
+         after i read madhuri shekar's <i>A Nice Indian Boy</i> and sanaz toosi's <i>English</i> in 2025, 
+         i was struck. where was the place on campus for theatre like this, where i could see myself more than acting on stage?
+         </p>
+         <p>
+         as financial director at barestage productions, i ran a financial audit uncovering systematic 
+         lack of support for productions with diverse themes (i.e., shows that center non-white 
          or lgbtq+ characters). the rimalower prize aims to fill that gap.
       </p>
       <p>
-         this project has  now grown to include more performers, 
+         since its launch in 2026, the project has grown to include more performers, 
          artists, technicians, and administrators than i ever could have 
          foreseen—not to mention the countless audience members that have been a part of this 
          journey as well.
@@ -85,16 +155,13 @@
           i was proud to serve as its producer.
       </p>           
         <p>
-          our intrepid cast and crew hurtled through 
-          every challenge a new production could throw at us, from securing rehearsal space, to aligning 
-          schedules with a wider company, and even to building a freestanding replica of 
-          the golden gate bridge. 
-        </p>  
-        <p>
-          through JUMP, we fought to create the kind of community we had so hoped to find--and succeeded.
+          we hunted down rehearsal space, scrapped for 
+          resources and funding within a wider company, and even built a freestanding replica of 
+          the golden gate bridge within a week. through JUMP, we fought to create the kind of 
+          community we had so hoped to find--and succeeded.
         </p>
         <p>
-         you can read more about the prize on <a href = "barestageproductions.org/the-rimalower-prize"> the barestage website</a>, or here,  
+         you can read more about the rimalower prize on <a href="https://barestageproductions.org/the-rimalower-prize"> the barestage website</a>, or here,  
          <a href = "https://docs.google.com/document/d/1bpg4lh2hzkysjuwgh5peql1c6_ieppo0czgvefu0jnk/edit?tab=t.0"
           >in my original proposal.</a> 
         </p>
@@ -123,18 +190,88 @@
     </div>
   </section>
 
-  <!-- ============ BAREPAGE ENSEMBLE ============ -->
-  <section class="section tab-panel feature" id="panel-barepage" role="tabpanel" aria-labelledby="tab-barepage" hidden>
+  <!-- ============ PERFORMING ============ -->
+  <section class="section tab-panel performing" id="panel-performing" role="tabpanel" aria-labelledby="tab-performing" hidden>
+
+    <div class="performing__leads">
+      <!-- CYRANO: swap each <span class="ph"> for <img src="assets/theatre/cyrano-1.jpg" alt="..."> -->
+      <article class="role">
+        <div class="role__text">
+          <span class="feature__eyebrow">lead role · spring 2024</span>
+          <h2 class="feature__title"><i>Cyrano de Bergerac</i></h2>
+          <p class="feature__show">Cyrano</p>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel__viewport">
+            <div class="carousel__track">
+            <div class="carousel__slide">
+              <span class="ph">PHOTO 1</span>
+              <span class="carousel__caption">Caption: Cyrano de Bergerac, spring 2024</span>
+            </div>
+            <div class="carousel__slide">
+              <span class="ph">PHOTO 2</span>
+              <span class="carousel__caption">Caption: Cyrano de Bergerac, spring 2024</span>
+            </div>
+            <div class="carousel__slide">
+              <span class="ph">PHOTO 3</span>
+              <span class="carousel__caption">Caption: Cyrano de Bergerac, spring 2024</span>
+            </div>
+            </div>
+          </div>
+          <div class="carousel__controls">
+            <button class="carousel__btn carousel__btn--prev" aria-label="Previous Cyrano photo">‹</button>
+            <div class="carousel__dots"></div>
+            <button class="carousel__btn carousel__btn--next" aria-label="Next Cyrano photo">›</button>
+          </div>
+        </div>
+      </article>
+
+      <!-- HAMLET: swap each <span class="ph"> for <img src="assets/theatre/hamlet-1.jpg" alt="..."> -->
+      <article class="role">
+        <div class="role__text">
+          <span class="feature__eyebrow">supporting role · spring 2023</span>
+          <h2 class="feature__title"><i>Rosencrantz and Guildenstern are Dead</i></h2>
+          <p class="feature__show">Hamlet</p>
+        </div>
+        <div class="carousel" data-carousel>
+          <div class="carousel__viewport">
+            <div class="carousel__track">
+            <div class="carousel__slide">
+              <span class="ph">PHOTO 1</span>
+              <span class="carousel__caption">Caption: Rosencrantz and Guildenstern are Dead, spring 2023</span>
+            </div>
+            <div class="carousel__slide">
+              <span class="ph">PHOTO 2</span>
+              <span class="carousel__caption">Caption: Rosencrantz and Guildenstern are Dead, spring 2023</span>
+            </div>
+            <div class="carousel__slide">
+              <span class="ph">PHOTO 3</span>
+              <span class="carousel__caption">Caption: Rosencrantz and Guildenstern are Dead, spring 2023</span>
+            </div>
+            </div>
+          </div>
+          <div class="carousel__controls">
+            <button class="carousel__btn carousel__btn--prev" aria-label="Previous Hamlet photo">‹</button>
+            <div class="carousel__dots"></div>
+            <button class="carousel__btn carousel__btn--next" aria-label="Next Hamlet photo">›</button>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- BAREPAGE ENSEMBLE -->
+    <article class="feature">
     <div class="feature__text">
       <span class="feature__eyebrow">ensemble · 4 years</span>
       <h2 class="feature__title">BarePage</h2>
       <p>barepage is an audition-only acting, writing, and directing ensemble. i was a member 
-        for all 8 semesters of my undergrad, so this group has almost been my second home. 
+        for all 8 semesters of my undergrad. this group was my second home. 
         </p>
         <p>
-          you can find the scenes i worked on in the productions tab. here are some photos 
+          you can find the scenes i wrote in the <a href="#writing">writing tab</a>. here are some photos 
         through the years!      
       </p>
+      <p class="feature__byline">selected ensemble roles: arjuna (from the mahabharata), saul mccartney (paul mccartney parody), voice of god x2, dead guy x4, hades, the human log (rolled a lot)</p>
     </div>
     <!-- carousel: swap each <span class="ph"> for <img src="assets/theatre/your-photo.jpg" alt="...">;
          add or remove .carousel__slide blocks freely, the dots update themselves -->
@@ -165,6 +302,7 @@
         <button class="carousel__btn carousel__btn--next" aria-label="Next photo">›</button>
       </div>
     </div>
+    </article>
   </section>
 
   <footer class="site-footer">
